@@ -1,1 +1,33 @@
-Hello.
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{mystyle}
+\usepackage{Sweave}
+\usepackage{our_titlepage}
+
+\begin{document}
+
+	\SweaveOpts{concordance=TRUE}
+	\SweaveOpts{echo=false}	
+
+
+		% Here we prepare basic info
+  
+<<results=hide>>=
+	  rm(list=ls())
+    source("./Scripts/setting_up_libraries.R")
+@
+
+
+		% Here we generate the titlepage
+	\pagestyle{empty} % Removes page numbers
+	\titleGP % This command includes the title page. This command is not ours. It was made by Peter Wilson.
+  \newpage  
+  
+  
+	%\tableofcontents
+  %\newpage
+  
+	%\section{Executive Summary}
+		%\SweaveInput{tex_Rnw/executive_summary.Rnw}
+    
+\end{document}
