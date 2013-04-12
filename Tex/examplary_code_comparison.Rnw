@@ -1,0 +1,15 @@
+Hello. Here we try to do something nice with the code of our foes - so here it goes.
+
+\begin{center}
+  \begin{tabular}{ l  }
+\begin{lstlisting}
+con <- url("http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData")
+load(con)
+\end{lstlisting}   \\% Nowy wiersz. 
+\begin{lstlisting}
+load("./Data/diagnozaOsoby2011.RData")
+\end{lstlisting}   \\% Nowy wiersz.
+  \end{tabular}
+\end{center}
+
+

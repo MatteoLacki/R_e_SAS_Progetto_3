@@ -27,7 +27,11 @@
 	%\tableofcontents
   %\newpage
   
-	%\section{Executive Summary}
-		%\SweaveInput{tex_Rnw/executive_summary.Rnw}
-    
+	\section{Examplary Code Comparison}
+		\SweaveInput{Tex/examplary_code_comparison.Rnw}
+
+  \section{Examplary Fastness Comparison}
+  	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
+
+
 \end{document}
