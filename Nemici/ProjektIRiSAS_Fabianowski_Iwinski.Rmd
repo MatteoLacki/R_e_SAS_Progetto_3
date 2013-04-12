@@ -1,0 +1,118 @@
+Kilka obserwacji ze zbioru Diagnoza Spo³eczna 2011
+========================================================
+
+Najpierw ³adujemy dane
+```{r}
+con <- url("http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData")
+load(con)
+```
+### Œrednie zarobki w zale¿noœci od kierunku wykszta³cenia
+Tworzymy tabelê, zawieraj¹c¹ œrednie zarobik w grupach o tym samym kierunku wykszta³cenia. Dane z 2007 roku.
+
+```{r}
+dochod2007nrkolumny = which(colnames(diagnozaOsoby2011) =="dp72")
+kierunek2007nrkolumny = which(colnames(diagnozaOsoby2011) =="dc13")
+dochod2007 = diagnozaOsoby2011[dochod2007nrkolumny]
+pods=by(dochod2007,diagnozaOsoby2011[kierunek2007nrkolumny],colMeans,na.rm=T)
+pods
+```
+SprawdŸmy kto zarabia najwiêcej
+```{r}
+max(pods,na.rm=T)
+which.max(pods)
+```
+weterynaria?
+```{r}
+w=dochod2007[diagnozaOsoby2011[,kierunek2007nrkolumny]=="weterynaria                                                ",]
+h=na.omit(w)
+h[1:length(h)]
+```
+Widzimy, wiêc ¿e dwie obserwacje zaburzaj¹ nasze wyniki, jednoczeœnie jest ich na tyle ma³o, ¿e po ich obciêciu otrzymamy ma³¹ próbê. Mimo to spróbujmy:
+```{r}
+options(warn=-1)
+options(showWarnCalls=F)
+pods1=by(dochod2007,diagnozaOsoby2011[kierunek2007nrkolumny],mean,na.rm=T,trim=0.1)
+pods1
+max(pods1,na.rm=T)
+which.max(pods1)
+```
+Znów to samo.  
+### G³ówne Ÿród³o utrzymania a p³eæ.
+Tworzymy tabelê kontyngencji ukazuj¹c¹ zaleznoœæ miêdzy p³ci¹ respondenta, a jego g³ównym Ÿród³em utrzymania. Dane z 2011 roku
+```{r}
+kont=table(diagnozaOsoby2011$fC37,diagnozaOsoby2011$PLEC)
+kont=kont[-1,-1]
+kont=addmargins(kont)
+kont
+```
+### Zadowolenie a zarobki
+Przypisujemy ocenom zadowolenia z ¿ycia wagi od -3 (najmniejsze zadowolenie) do 3 (najwiêksze), a nastêpnie tworzymy wykres s³upkowy ukazuj¹ce œrednie zadowolenie w kategoriach zarobkowych (krok co 500z³)
+
+```{r}
+zarobki_zadowolenie=diagnozaOsoby2011[c(2086,2217)]
+zarobki_zadowolenie2=na.omit(zarobki_zadowolenie)
+w=numeric(length(zarobki_zadowolenie2[,1]))
+poziomy=levels(zarobki_zadowolenie2[,1])
+for (i in 2:length(poziomy)){
+  l=zarobki_zadowolenie2[,1]==poziomy[i]
+  l=l*(5-i)
+  p=w+l
+  w=p
+}
+
+
+zarobki_cut=cut(zarobki_zadowolenie2[,2],breaks=c(seq(0,6000,by=500),Inf), right=F, include.highest=T)
+dane=tapply(w,zarobki_cut,mean)
+dane
+barplot(dane,xlab="dochody",ylab="srednie zadowolenie",space=0.5,main="Dochody a zadowolenie z ¿ycia")
+```
+
+### Obliczanie gêstoœci zmiennych iloœciowych
+Tworzymy funkcjê licz¹c¹ i rysuj¹c¹ j¹drowy estymator gestoœci, dla zmiennych iloœciowych w zale¿noœci od p³ci
+
+```{r}
+f <- function(x,plec="m",przybliznormalnym=F){
+  if (is.numeric(x)) {
+    if (plec=="o") {
+    d=density(x,na.rm=T)
+    y=x
+    }
+    else {l=diagnozaOsoby2011$PLEC=="mezczyzna"
+      if (plec=="m") 
+      {y=x[l]
+      d=density(y,na.rm =T)
+      }
+          else {l=!l
+                y=x[l]
+                d=density(y,na.rm =T)
+          }
+    }
+      plot(d,xlab="x",ylab="gêstoœæ(x)",main="gêstoœæ z próbki wybranej cechy")
+      if (przybliznormalnym==T) {
+        odchylenie=(var(y,na.rm=T))^(1/2)
+        oczekiwana=mean(y,na.rm=T)
+        cat(paste("odchylenie standardowe = ",odchylenie))
+        cat(paste("
+                  œrednia = ",oczekiwana))
+        dol=oczekiwana-3*odchylenie
+        gora=oczekiwana+3*odchylenie
+        k=seq(from=dol, to=gora, by=0.1)
+        lines(k,dnorm(k,mean=oczekiwana,sd=odchylenie),col="red",lty=2)
+        legend(120,0.02,c("gêstoœæ z próbki","rozk³ad normalny"),col=1:2,lty=1:2)
+      }
+    }
+  else {cat("zly argument")}
+}
+```
+Wywo³ujemy j¹ dla wzrostu mê¿czyzn
+```{r}
+f(diagnozaOsoby2011$fp55)
+```
+kobiet (umieszczaj¹c na tle rozk³adu normalnego)
+```{r}
+f(diagnozaOsoby2011$fp55,"k",T)
+```
+Oraz wagi w ca³ej populacji
+```{r}
+f(diagnozaOsoby2011$fp56,"k",T)
+```
