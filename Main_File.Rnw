@@ -34,7 +34,6 @@
   	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
 
     Dodalem tekst.+
-    Dodam -.
     Dodam ?
 
 \end{document}
