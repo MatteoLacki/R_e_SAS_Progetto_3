@@ -33,7 +33,8 @@
   \section{Examplary Fastness Comparison}
   	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
 
-    Dodalem tekst.+++++bmdfkbdss
+    Dodalem tekst.-----------
+
     Dodam ?
 
 \end{document}
