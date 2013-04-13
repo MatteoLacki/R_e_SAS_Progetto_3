@@ -1,0 +1,19 @@
+<<>>=
+
+load("./Data/diagnozaOsoby2011.RData")
+dim(diagnozaOsoby2011)
+
+
+
+dane <- data.frame(diagnozaOsoby2011$WOJEWODZTWO, diagnozaOsoby2011$KLASA_MIEJSOWOSCI, diagnozaOsoby2011$PLEC, diagnozaOsoby2011$wiek2007, diagnozaOsoby2011$dp3, diagnozaOsoby2011$dp72, diagnozaOsoby2011$dc18, diagnozaOsoby2011$dc56, diagnozaOsoby2011$dp114, diagnozaOsoby2011$dp115)
+
+colnames(dane) <- c("State", "Settlement class", 
+                    "Gender", "Age in 2007", 
+                    "Sattisfaction", "Salary",
+                    "English Skills", "Smoking", 
+                    "Time to office", "Path to office")
+for (i in 2:ncol(dane)){                              # zmiana kodowania
+  dane[,i]<-iconv(dane[,i], "CP1250", "UTF-8")
+}
+dim(dane)
+@
