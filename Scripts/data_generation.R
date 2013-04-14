@@ -1,5 +1,4 @@
 load("./Data/diagnozaOsoby2011.RData")
-dim(diagnozaOsoby2011)
 
 # Prepariamo nomi delle colonne di interesse.
 variables_of_interest <- c("WOJEWODZTWO", "KLASA_MIEJSOWOSCI", "PLEC","wiek2007", "dp3", "dc18", "dp72",  "dp56", "dp114", "dp115" )

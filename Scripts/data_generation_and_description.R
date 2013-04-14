@@ -1,4 +1,6 @@
 dane <- read.csv2("Data/prepared_data.csv")
+comparing_times <- read.csv2("Data/time_of_downloading_over_the_internet.csv")
+
 
 # C'è un nome inglese per Województwo :)
 # Non avremo piu bisogno di nomi dei dati in tabella originale. Per questo cambiamoli.

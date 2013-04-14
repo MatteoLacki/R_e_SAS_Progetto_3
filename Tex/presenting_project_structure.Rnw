@@ -1,0 +1,52 @@
+Here we shall outline differences between old and new project structures. 
+
+Every old project lacs any structure. The code is stored in one file only and because of that lacks readability. As an example consider the following part of code.
+
+\begin{lstlisting}
+### Obliczanie g?sto?ci zmiennych ilo?ciowych
+Tworzymy funkcj? licz?c? i rysuj?c? j?drowy estymator gesto?ci, dla zmiennych ilo?ciowych w zale?no?ci od p?ci
+
+```{r}
+f <- function(x,plec="m",przybliznormalnym=F){
+  if (is.numeric(x)) {
+    if (plec=="o") {
+    d=density(x,na.rm=T)
+    y=x
+    }
+    else {l=diagnozaOsoby2011$PLEC=="mezczyzna"
+      if (plec=="m") 
+      {y=x[l]
+      d=density(y,na.rm =T)
+      }
+          else {l=!l
+                y=x[l]
+                d=density(y,na.rm =T)
+          }
+    }
+      plot(d,xlab="x",ylab="g?sto??(x)",main="g?sto?? z pr?bki wybranej cechy")
+      if (przybliznormalnym==T) {
+        odchylenie=(var(y,na.rm=T))^(1/2)
+        oczekiwana=mean(y,na.rm=T)
+        cat(paste("odchylenie standardowe = ",odchylenie))
+        cat(paste("
+                  ?rednia = ",oczekiwana))
+        dol=oczekiwana-3*odchylenie
+        gora=oczekiwana+3*odchylenie
+        k=seq(from=dol, to=gora, by=0.1)
+        lines(k,dnorm(k,mean=oczekiwana,sd=odchylenie),col="red",lty=2)
+        legend(120,0.02,c("g?sto?? z pr?bki","rozk?ad normalny"),col=1:2,lty=1:2)
+      }
+    }
+  else {cat("zly argument")}
+}
+\end{lstlisting}
+
+Note that the whole definition of the function could gave been stored in a separate file, e.g. \url{ancilliary_functions.R}, and stored in a folder which would be used only for \url{R} codes, e.g. \url{Scripts}. Then it could have been included in the following way 
+
+\begin{lstlisting}
+source("./Scripts/ancilliary_functions.R")
+\end{lstlisting}
+
+Note that the above chunk could have been included right at the beginning of the latex document in an \url{R} chunk with hidden results. Then it would be present in the \url{R} session till the end of the compilation process and in every part of the document the function could be called without explicitly using the code itself.
+
+Moreover, it is a good custom to do multifile projects, because this creates transparency. We don't have to search for a specific section of the code in one file, but rather directly open the file which is precisely labelled. 

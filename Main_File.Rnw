@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[a4paper]{article}
 
   % I pacchetti degli altri.
 \usepackage{Sweave}
@@ -24,6 +24,7 @@
 	  rm(list=ls())
     source("./Scripts/setting_up_libraries.R")
     #source("./Scripts/data_generation.R")
+    #source("./Scripts/testing_time_of_downloading_over_the_internet.R")
 @
 
 
@@ -35,14 +36,14 @@
   
 	%\tableofcontents
   %\newpage
+  \section{Presenting project structure}
+    \SweaveInput{Tex/presenting_project_structure.Rnw}
   
   \section{Presenting data}
     \SweaveInput{Tex/presenting_data.Rnw}
 
-  \section{Examplary Code Comparison}
-		\SweaveInput{Tex/examplary_code_comparison.Rnw}
-
-  \section{Examplary Fastness Comparison}
-  	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
+  \newpage
+  \section{Comparing speed of operations}
+  	\SweaveInput{Tex/fastness_comparison.Rnw}
 
 \end{document}

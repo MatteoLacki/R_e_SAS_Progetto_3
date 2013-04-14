@@ -1,12 +1,41 @@
-Here we shall give a brief acount on our data set.
+The second project lacked a good naming strategy of variables and a nice presentation of thereof. Table \ref{data_description} is to fill that gap.
 
 <<results=tex>>==
   source("./Scripts/data_generation_and_description.R")
 
       # Se vvoit vedere i risultati devi includere questo pacchetto. E gia incluso nei Scripts/setting_up_libraries.R
       # library(xtable)
-  variables_desciption_table <- xtable(x=variables_desciption_table, caption="Variable description.", label="data_desciption" )
+  variables_desciption_table <- xtable(x=variables_desciption_table, caption="Variable description.", label="data_description" )
 
   print(variables_desciption_table, include.rownames=FALSE)
   rm(variables_desciption_table)
 @
+
+Moreover, it seems unreasonable to download every time the \url{diagnozaOsoby2011.Rdata} file, for it is big and considerably slows the compilation process. It seems also unreasonable to store the whole file in the workspace, if we are to use only a small section of it consisting of several columns only. 
+
+Therefore instead of 
+
+\begin{lstlisting}
+con <- url("http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData")
+load(con)
+\end{lstlisting}
+
+we settled for 
+
+\begin{lstlisting}
+load("./Data/diagnozaOsoby2011.RData")
+
+variables_of_interest <- c("WOJEWODZTWO", "KLASA_MIEJSOWOSCI", "PLEC","wiek2007", "dp3", "dc18", "dp72",  "dp56", "dp114", "dp115" )
+
+dane <- diagnozaOsoby2011[,variables_of_interest]
+
+write.csv2(dane, "Data/prepared_data.csv", row.names = FALSE)
+
+rm(diagnozaOsoby2011) 
+rm(dane)
+
+\end{lstlisting}
+
+We thing that it is a good custom to remove the no longer necessary variables. 
+
+Having prepared the data, we write a compact \url{csv} file which contains information on only the variables of interest and then upload it every time a complation is executed. The whole process saves much time if we are to recompile the file many times on a given set. The timings are presented in the timings section.
