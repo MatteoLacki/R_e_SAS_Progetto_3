@@ -16,3 +16,4 @@ Tatiana: macierze korelacji.
 
 Mateusz: Dojazd a odległość, punkt 7. 
 Mateusz: Mapki.
+Mateusz: zauważyć, że usunięcie rm(diagnozaOsoby2011)  jest więcej aniżeli wskazane.

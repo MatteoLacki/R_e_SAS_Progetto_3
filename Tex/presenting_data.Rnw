@@ -1,0 +1,12 @@
+Here we shall give a brief acount on our data set.
+
+<<results=tex>>==
+  source("./Scripts/data_generation_and_description.R")
+
+      # Se vvoit vedere i risultati devi includere questo pacchetto. E gia incluso nei Scripts/setting_up_libraries.R
+      # library(xtable)
+  variables_desciption_table <- xtable(x=variables_desciption_table, caption="Variable description.", label="data_desciption" )
+
+  print(variables_desciption_table, include.rownames=FALSE)
+  rm(variables_desciption_table)
+@

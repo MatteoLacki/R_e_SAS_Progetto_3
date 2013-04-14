@@ -1,8 +1,16 @@
 \documentclass[12pt, a4paper]{article}
 
-\usepackage{mystyle}
+  % I pacchetti degli altri.
 \usepackage{Sweave}
+
+  % I pacchetti degli altri ma modificati da noi.
 \usepackage{our_titlepage}
+
+  % I Nostri Pacchetti.
+\usepackage{mystyle}
+
+
+
 
 \begin{document}
 
@@ -10,11 +18,12 @@
 	\SweaveOpts{echo=false}	
 
 
-		% Here we prepare basic info
+		% Here we prepare basic info. Run source("./Scripts/data_generation.R") only once to avoid messing up with big data matrix.
   
 <<results=hide>>=
 	  rm(list=ls())
     source("./Scripts/setting_up_libraries.R")
+    #source("./Scripts/data_generation.R")
 @
 
 
@@ -27,15 +36,13 @@
 	%\tableofcontents
   %\newpage
   
-	\section{Examplary Code Comparison}
+  \section{Presenting data}
+    \SweaveInput{Tex/presenting_data.Rnw}
+
+  \section{Examplary Code Comparison}
 		\SweaveInput{Tex/examplary_code_comparison.Rnw}
 
   \section{Examplary Fastness Comparison}
   	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
-
-    Dodalem tekst.-----------
-
-
-    Dodam Matko !
 
 \end{document}
