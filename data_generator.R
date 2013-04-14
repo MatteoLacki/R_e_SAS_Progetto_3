@@ -1,0 +1,1 @@
+load("./Data/diagnozaOsoby2011.RData")

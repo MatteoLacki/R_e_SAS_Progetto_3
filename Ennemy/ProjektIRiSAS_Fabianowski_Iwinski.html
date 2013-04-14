@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Kilka obserwacji ze zbioru Diagnoza Społeczna 2011</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Kilka obserwacji ze zbioru Diagnoza Społeczna 2011</h1>
+
+<p>Najpierw ładujemy dane</p>
+
+<pre><code class="r">con &lt;- url(&quot;http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData&quot;)
+load(con)
+</code></pre>
+
+<h3>Średnie zarobki w zależności od kierunku wykształcenia</h3>
+
+<p>Tworzymy tabelę, zawierającą średnie zarobik w grupach o tym samym kierunku wykształcenia. Dane z 2007 roku.</p>
+
+<pre><code class="r">dochod2007nrkolumny = which(colnames(diagnozaOsoby2011) == &quot;dp72&quot;)
+kierunek2007nrkolumny = which(colnames(diagnozaOsoby2011) == &quot;dc13&quot;)
+dochod2007 = diagnozaOsoby2011[dochod2007nrkolumny]
+pods = by(dochod2007, diagnozaOsoby2011[kierunek2007nrkolumny], colMeans, na.rm = T)
+pods
+</code></pre>
+
+<pre><code>## dc13: BD/ND/FALA
+## [1] NA
+## -------------------------------------------------------- 
+## dc13: pedagogika                                                 
+## [1] 5330
+## -------------------------------------------------------- 
+## dc13: sztuka                                                     
+## [1] 1564
+## -------------------------------------------------------- 
+## dc13: nauki humanistyczne (religia, jezyki obce i jezyk ojczysty,
+## [1] 6408
+## -------------------------------------------------------- 
+## dc13: nauki spoleczne (psychologia, socjologia, demografia, nauki
+## [1] 3396
+## -------------------------------------------------------- 
+## dc13: dziennikarstwo i informacja                                
+## [1] 1462
+## -------------------------------------------------------- 
+## dc13: gospodarka i administracja (zarzadzanie, marketing, finanse
+## [1] 3725
+## -------------------------------------------------------- 
+## dc13: prawo                                                      
+## [1] 10782
+## -------------------------------------------------------- 
+## dc13: nauki biologiczne                                          
+## [1] 6681
+## -------------------------------------------------------- 
+## dc13: nauki fizyczne                                             
+## [1] 2125
+## -------------------------------------------------------- 
+## dc13: matematyka i statystyka                                    
+## [1] 6296
+## -------------------------------------------------------- 
+## dc13: komputeryzacja   (informatyka)                             
+## [1] 7353
+## -------------------------------------------------------- 
+## dc13: nauki techniczne (technika, przemysl, budownictwo)         
+## [1] 3492
+## -------------------------------------------------------- 
+## dc13: produkcja i przetworstwo                                   
+## [1] 4198
+## -------------------------------------------------------- 
+## dc13: architektura i budownictwo                                 
+## [1] 3497
+## -------------------------------------------------------- 
+## dc13: rolnictwo, lesnictwo, rybactwo                             
+## [1] 4656
+## -------------------------------------------------------- 
+## dc13: weterynaria                                                
+## [1] 21410
+## -------------------------------------------------------- 
+## dc13: zdrowie publiczne                                          
+## [1] 4766
+## -------------------------------------------------------- 
+## dc13: ochrona zdrowia (medycyna, stomatologia, pielegniarstwo, fa
+## [1] 4885
+## -------------------------------------------------------- 
+## dc13: opieka spoleczna (uslugi spoleczne)                        
+## [1] 840.4
+## -------------------------------------------------------- 
+## dc13: uslugi dla ludnosci i uslugi transportowe                  
+## [1] 4697
+## -------------------------------------------------------- 
+## dc13: ochrona srodowiska i uslugi sanitarne komunalne            
+## [1] 3858
+## -------------------------------------------------------- 
+## dc13: ochrona i bezpieczenstwo                                   
+## [1] 5951
+## -------------------------------------------------------- 
+## dc13: sily zbrojne i ochrona kraju                               
+## [1] 10864
+## -------------------------------------------------------- 
+## dc13: inne                                                       
+## [1] 4764
+## -------------------------------------------------------- 
+## dc13: brak kierunku (np. wyksztalcenie podstawowe, gimnazjum lub 
+## [1] 2902
+## -------------------------------------------------------- 
+## dc13: nie dotyczy (osoby przed ukonczeniem szkoly podstawowej lub
+## [1] 880.3
+## -------------------------------------------------------- 
+## dc13: brak danych                                                
+## [1] 1026
+</code></pre>
+
+<p>Sprawdźmy kto zarabia najwięcej</p>
+
+<pre><code class="r">max(pods, na.rm = T)
+</code></pre>
+
+<pre><code>## [1] 21410
+</code></pre>
+
+<pre><code class="r">which.max(pods)
+</code></pre>
+
+<pre><code>## weterynaria                                                 
+##                                                          17
+</code></pre>
+
+<p>weterynaria?</p>
+
+<pre><code class="r">w = dochod2007[diagnozaOsoby2011[, kierunek2007nrkolumny] == &quot;weterynaria                                                &quot;, 
+    ]
+h = na.omit(w)
+h[1:length(h)]
+</code></pre>
+
+<pre><code>##  [1]   4000   1700   1300   4000    440    640  99999   1000   1025  99999
+</code></pre>
+
+<p>Widzimy, więc że dwie obserwacje zaburzają nasze wyniki, jednocześnie jest ich na tyle mało, że po ich obcięciu otrzymamy małą próbę. Mimo to spróbujmy:</p>
+
+<pre><code class="r">options(warn = -1)
+options(showWarnCalls = F)
+pods1 = by(dochod2007, diagnozaOsoby2011[kierunek2007nrkolumny], mean, na.rm = T, 
+    trim = 0.1)
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code>## Warning: mean(&lt;data.frame&gt;) is deprecated.  Use colMeans() or sapply(*,
+## mean) instead.
+</code></pre>
+
+<pre><code class="r">pods1
+</code></pre>
+
+<pre><code>## dc13: BD/ND/FALA
+## [1] NA
+## -------------------------------------------------------- 
+## dc13: pedagogika                                                 
+## [1] 1394
+## -------------------------------------------------------- 
+## dc13: sztuka                                                     
+## [1] 1434
+## -------------------------------------------------------- 
+## dc13: nauki humanistyczne (religia, jezyki obce i jezyk ojczysty,
+## [1] 1711
+## -------------------------------------------------------- 
+## dc13: nauki spoleczne (psychologia, socjologia, demografia, nauki
+## [1] 1233
+## -------------------------------------------------------- 
+## dc13: dziennikarstwo i informacja                                
+## [1] 1462
+## -------------------------------------------------------- 
+## dc13: gospodarka i administracja (zarzadzanie, marketing, finanse
+## [1] 1259
+## -------------------------------------------------------- 
+## dc13: prawo                                                      
+## [1] 2972
+## -------------------------------------------------------- 
+## dc13: nauki biologiczne                                          
+## [1] 1527
+## -------------------------------------------------------- 
+## dc13: nauki fizyczne                                             
+## [1] 1577
+## -------------------------------------------------------- 
+## dc13: matematyka i statystyka                                    
+## [1] 1406
+## -------------------------------------------------------- 
+## dc13: komputeryzacja   (informatyka)                             
+## [1] 1677
+## -------------------------------------------------------- 
+## dc13: nauki techniczne (technika, przemysl, budownictwo)         
+## [1] 1257
+## -------------------------------------------------------- 
+## dc13: produkcja i przetworstwo                                   
+## [1] 935.9
+## -------------------------------------------------------- 
+## dc13: architektura i budownictwo                                 
+## [1] 1229
+## -------------------------------------------------------- 
+## dc13: rolnictwo, lesnictwo, rybactwo                             
+## [1] 1029
+## -------------------------------------------------------- 
+## dc13: weterynaria                                                
+## [1] 14208
+## -------------------------------------------------------- 
+## dc13: zdrowie publiczne                                          
+## [1] 1258
+## -------------------------------------------------------- 
+## dc13: ochrona zdrowia (medycyna, stomatologia, pielegniarstwo, fa
+## [1] 1413
+## -------------------------------------------------------- 
+## dc13: opieka spoleczna (uslugi spoleczne)                        
+## [1] 760.5
+## -------------------------------------------------------- 
+## dc13: uslugi dla ludnosci i uslugi transportowe                  
+## [1] 952.4
+## -------------------------------------------------------- 
+## dc13: ochrona srodowiska i uslugi sanitarne komunalne            
+## [1] 1258
+## -------------------------------------------------------- 
+## dc13: ochrona i bezpieczenstwo                                   
+## [1] 2094
+## -------------------------------------------------------- 
+## dc13: sily zbrojne i ochrona kraju                               
+## [1] 2153
+## -------------------------------------------------------- 
+## dc13: inne                                                       
+## [1] 1091
+## -------------------------------------------------------- 
+## dc13: brak kierunku (np. wyksztalcenie podstawowe, gimnazjum lub 
+## [1] 695.7
+## -------------------------------------------------------- 
+## dc13: nie dotyczy (osoby przed ukonczeniem szkoly podstawowej lub
+## [1] 810.9
+## -------------------------------------------------------- 
+## dc13: brak danych                                                
+## [1] 857.1
+</code></pre>
+
+<pre><code class="r">max(pods1, na.rm = T)
+</code></pre>
+
+<pre><code>## [1] 14208
+</code></pre>
+
+<pre><code class="r">which.max(pods1)
+</code></pre>
+
+<pre><code>## weterynaria                                                 
+##                                                          17
+</code></pre>
+
+<p>Znów to samo.  </p>
+
+<h3>Główne źródło utrzymania a płeć.</h3>
+
+<p>Tworzymy tabelę kontyngencji ukazującą zalezność między płcią respondenta, a jego głównym źródłem utrzymania. Dane z 2011 roku</p>
+
+<pre><code class="r">kont = table(diagnozaOsoby2011$fC37, diagnozaOsoby2011$PLEC)
+kont = kont[-1, -1]
+kont = addmargins(kont)
+kont
+</code></pre>
+
+<pre><code>##                                                                             
+##                                                                              mezczyzna
+##   praca najemna stala w sektorze publicznym                                       1503
+##   praca najemna stala w sektorze prywatnym                                        4160
+##   praca najemna dorywcza w sektorze publicznym                                      31
+##   praca najemna dorywcza w sektorze prywatnym                                      319
+##   uzytkowanie gospodarstwa rolnego                                                 863
+##   pomaganie w uzytkowaniu gospodarstwa rolnego                                     124
+##   pracodawca poza gospodarstwem indywidualnym w rolnictwie                         114
+##   praca stala na wlasny rachunek                                                   699
+##   praca dorywcza na wlasny rachunek                                                 42
+##   pomaganie w pracy na wlasny rachunek                                              11
+##   emerytury                                                                       2538
+##   emerytury rolnikow indywidualnych                                                426
+##   renty inwalidzkie                                                                871
+##   renty rodzinne                                                                   153
+##   zasilki macierzynskie                                                              1
+##   zasilki dla bezrobotnych                                                         132
+##   inne swiadczenia z Funduszu Pracy                                                 57
+##   dodatki dla osob na urlopach wychowawczych                                         1
+##   pozostale swiadczenia z ubezpieczenia spolecznego                                 34
+##   zasilki rodzinne i dodatki do nich                                                18
+##   zasilki z pomocy spolecznej                                                      102
+##   inne swiadczenia z pomocy spolecznej                                              46
+##   alimenty na dzieci                                                                62
+##   pozostale dochody o charakterze swiadczen socjalnych                              56
+##   dochody z wlasnosci                                                                5
+##   dochody z wynajmu domu , garazu                                                    7
+##   emerytury i renty zagraniczne                                                      5
+##   swiadczenia z tytulu dobrowolnego ubezpieczenia chorobowego i wypadkowego          0
+##   odszkodowania z tytulu pozostalych ubezpieczen                                     0
+##   dary, alimenty od osob prywatnych                                                 45
+##   pozostale dochody                                                                 13
+##   inne przychody                                                                    55
+##   pozostawanie na utrzymaniu innych czlonkow gospodarstwa                         4813
+##   Sum                                                                            17306
+##                                                                             
+##                                                                              kobieta
+##   praca najemna stala w sektorze publicznym                                     2052
+##   praca najemna stala w sektorze prywatnym                                      2726
+##   praca najemna dorywcza w sektorze publicznym                                    32
+##   praca najemna dorywcza w sektorze prywatnym                                    162
+##   uzytkowanie gospodarstwa rolnego                                               561
+##   pomaganie w uzytkowaniu gospodarstwa rolnego                                   308
+##   pracodawca poza gospodarstwem indywidualnym w rolnictwie                        34
+##   praca stala na wlasny rachunek                                                 283
+##   praca dorywcza na wlasny rachunek                                               11
+##   pomaganie w pracy na wlasny rachunek                                            37
+##   emerytury                                                                     3514
+##   emerytury rolnikow indywidualnych                                              901
+##   renty inwalidzkie                                                              588
+##   renty rodzinne                                                                 866
+##   zasilki macierzynskie                                                           39
+##   zasilki dla bezrobotnych                                                       124
+##   inne swiadczenia z Funduszu Pracy                                               49
+##   dodatki dla osob na urlopach wychowawczych                                      46
+##   pozostale swiadczenia z ubezpieczenia spolecznego                               30
+##   zasilki rodzinne i dodatki do nich                                             158
+##   zasilki z pomocy spolecznej                                                    136
+##   inne swiadczenia z pomocy spolecznej                                           129
+##   alimenty na dzieci                                                             144
+##   pozostale dochody o charakterze swiadczen socjalnych                            86
+##   dochody z wlasnosci                                                              6
+##   dochody z wynajmu domu , garazu                                                  4
+##   emerytury i renty zagraniczne                                                   12
+##   swiadczenia z tytulu dobrowolnego ubezpieczenia chorobowego i wypadkowego        1
+##   odszkodowania z tytulu pozostalych ubezpieczen                                   0
+##   dary, alimenty od osob prywatnych                                              106
+##   pozostale dochody                                                               14
+##   inne przychody                                                                  48
+##   pozostawanie na utrzymaniu innych czlonkow gospodarstwa                       5880
+##   Sum                                                                          19087
+##                                                                             
+##                                                                                Sum
+##   praca najemna stala w sektorze publicznym                                   3555
+##   praca najemna stala w sektorze prywatnym                                    6886
+##   praca najemna dorywcza w sektorze publicznym                                  63
+##   praca najemna dorywcza w sektorze prywatnym                                  481
+##   uzytkowanie gospodarstwa rolnego                                            1424
+##   pomaganie w uzytkowaniu gospodarstwa rolnego                                 432
+##   pracodawca poza gospodarstwem indywidualnym w rolnictwie                     148
+##   praca stala na wlasny rachunek                                               982
+##   praca dorywcza na wlasny rachunek                                             53
+##   pomaganie w pracy na wlasny rachunek                                          48
+##   emerytury                                                                   6052
+##   emerytury rolnikow indywidualnych                                           1327
+##   renty inwalidzkie                                                           1459
+##   renty rodzinne                                                              1019
+##   zasilki macierzynskie                                                         40
+##   zasilki dla bezrobotnych                                                     256
+##   inne swiadczenia z Funduszu Pracy                                            106
+##   dodatki dla osob na urlopach wychowawczych                                    47
+##   pozostale swiadczenia z ubezpieczenia spolecznego                             64
+##   zasilki rodzinne i dodatki do nich                                           176
+##   zasilki z pomocy spolecznej                                                  238
+##   inne swiadczenia z pomocy spolecznej                                         175
+##   alimenty na dzieci                                                           206
+##   pozostale dochody o charakterze swiadczen socjalnych                         142
+##   dochody z wlasnosci                                                           11
+##   dochody z wynajmu domu , garazu                                               11
+##   emerytury i renty zagraniczne                                                 17
+##   swiadczenia z tytulu dobrowolnego ubezpieczenia chorobowego i wypadkowego      1
+##   odszkodowania z tytulu pozostalych ubezpieczen                                 0
+##   dary, alimenty od osob prywatnych                                            151
+##   pozostale dochody                                                             27
+##   inne przychody                                                               103
+##   pozostawanie na utrzymaniu innych czlonkow gospodarstwa                    10693
+##   Sum                                                                        36393
+</code></pre>
+
+<h3>Zadowolenie a zarobki</h3>
+
+<p>Przypisujemy ocenom zadowolenia z życia wagi od -3 (najmniejsze zadowolenie) do 3 (największe), a następnie tworzymy wykres słupkowy ukazujące średnie zadowolenie w kategoriach zarobkowych (krok co 500zł)</p>
+
+<pre><code class="r">zarobki_zadowolenie = diagnozaOsoby2011[c(2086, 2217)]
+zarobki_zadowolenie2 = na.omit(zarobki_zadowolenie)
+w = numeric(length(zarobki_zadowolenie2[, 1]))
+poziomy = levels(zarobki_zadowolenie2[, 1])
+for (i in 2:length(poziomy)) {
+    l = zarobki_zadowolenie2[, 1] == poziomy[i]
+    l = l * (5 - i)
+    p = w + l
+    w = p
+}
+
+
+zarobki_cut = cut(zarobki_zadowolenie2[, 2], breaks = c(seq(0, 6000, by = 500), 
+    Inf), right = F, include.highest = T)
+dane = tapply(w, zarobki_cut, mean)
+dane
+</code></pre>
+
+<pre><code>##         [0,500)     [500,1e+03) [1e+03,1.5e+03) [1.5e+03,2e+03) 
+##          1.1567          0.8097          1.0381          1.2234 
+## [2e+03,2.5e+03) [2.5e+03,3e+03) [3e+03,3.5e+03) [3.5e+03,4e+03) 
+##          1.3556          1.4176          1.4595          1.4970 
+## [4e+03,4.5e+03) [4.5e+03,5e+03) [5e+03,5.5e+03) [5.5e+03,6e+03) 
+##          1.5636          1.4602          1.5120          1.4091 
+##     [6e+03,Inf) 
+##          1.6787
+</code></pre>
+
+<pre><code class="r">barplot(dane, xlab = &quot;dochody&quot;, ylab = &quot;srednie zadowolenie&quot;, space = 0.5, main = &quot;Dochody a zadowolenie z życia&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAApVBMVEX9/v0AAAAAADkAAGUAOWUAOY8AZrU5AAA5ADk5AGU5OWU5OY85ZmU5ZrU5j485j7U5j9plAABlADllAGVlOQBlOY9lZgBlZjllZmVltbVltf2POQCPOTmPOWWPZgCPjzmPj7WPtY+P27WP29qP2/21ZgC1Zjm1ZmW1tWW124+1/rW1/v2+vr7ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v0Te0nvAAAAN3RSTlP///////////////////////////////////////////////////////////////////////8AEFmdiwAAAAlwSFlzAAALEgAACxIB0t1+/AAAELVJREFUeJztnQ174sYVRou3trPdpoXdpE3Mpm0a0yZxaWq+/v9Pq0Yagfh+tYNh5t5znn0WLIn3jnWY0Ycl+N0KXPK7WzcAbgPinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIfwMWo3cvt27DOXIXvxgNAk8HZi3HB1fvYnT/2qvAmcUPWzzp9uDMzN4NhYgfDPdn3VR88eQvPqz22SD8P41vgOV4EH6uxP/yWM/YmvP96P5/4S0xi2+WWTXv7nn9NCzYToqLv7YB9VtpWj2p3w0xtGnBtBl2qiV+rotvTe1mr5/+uW1EbG79ik5jbkwZ4leTav1O6vX5UK/IsCqbx2rCzpzB/es0LN6s4GbIaHr1rHlhO2m9+Dqgfl31GHy10+oWTKLWdc2tqZ3sztPYiLa54RXdxtyYQsRXK3H+WJlcjO6e54/1On+q1uhwNX+8f92eMx2EKQ/dDUFntJ7GHhomdRZfBwwXo+8qZ+FpnNYsWckKiXXNWfWSrak72fFpbETb3LYRmWw6yhE/C327edL0seW4VnP/2pnz0Gy0l+P730YP64i2K66CjM2k9eLrgMXoYf7Vj189T+LMZlr4oSZ031hza+pW9vppbETb3OY36TbmphQifrIlvlnBdV87LH41vfvxsVnf88fNGBy7ZztpX/xq8u7nd7+Ovq99HRYfa+6L73T9+LRpRNvcZozoNOa2lCE+7NztDujDtYT9oT64jT6m9fYgrutmMG4n7Q/1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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<h3>Obliczanie gęstości zmiennych ilościowych</h3>
+
+<p>Tworzymy funkcję liczącą i rysującą jądrowy estymator gestości, dla zmiennych ilościowych w zależności od płci</p>
+
+<pre><code class="r">f &lt;- function(x, plec = &quot;m&quot;, przybliznormalnym = F) {
+    if (is.numeric(x)) {
+        if (plec == &quot;o&quot;) {
+            d = density(x, na.rm = T)
+            y = x
+        } else {
+            l = diagnozaOsoby2011$PLEC == &quot;mezczyzna&quot;
+            if (plec == &quot;m&quot;) {
+                y = x[l]
+                d = density(y, na.rm = T)
+            } else {
+                l = !l
+                y = x[l]
+                d = density(y, na.rm = T)
+            }
+        }
+        plot(d, xlab = &quot;x&quot;, ylab = &quot;gęstość(x)&quot;, main = &quot;gęstość z próbki wybranej cechy&quot;)
+        if (przybliznormalnym == T) {
+            odchylenie = (var(y, na.rm = T))^(1/2)
+            oczekiwana = mean(y, na.rm = T)
+            cat(paste(&quot;odchylenie standardowe = &quot;, odchylenie))
+            cat(paste(&quot;\nśrednia = &quot;, oczekiwana))
+            dol = oczekiwana - 3 * odchylenie
+            gora = oczekiwana + 3 * odchylenie
+            k = seq(from = dol, to = gora, by = 0.1)
+            lines(k, dnorm(k, mean = oczekiwana, sd = odchylenie), col = &quot;red&quot;, 
+                lty = 2)
+            legend(120, 0.02, c(&quot;gęstość z próbki&quot;, &quot;rozkład normalny&quot;), col = 1:2, 
+                lty = 1:2)
+        }
+    } else {
+        cat(&quot;zly argument&quot;)
+    }
+}
+</code></pre>
+
+<p>Wywołujemy ją dla wzrostu mężczyzn</p>
+
+<pre><code class="r">f(diagnozaOsoby2011$fp55)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAolBMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZrU5AAA5ADk5AGU5OQA5OWU5OY85ZmU5j9plAABlADllAGVlOQBlOY9lZgBlZjllZmVlZrVltbVltf2POQCPOTmPOWWPZgCPtY+PtdqP29qP2/21ZgC1Zjm1ZmW1tWW124+1/rW1/tq1/v2+vr7ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v2w6L25AAAANnRSTlP//////////////////////////////////////////////////////////////////////wChj04xAAAACXBIWXMAAAsSAAALEgHS3X78AAAQZklEQVR4nO2dC3vixhWGM3hr2LQurJMmLWy6KbTJ1lUSg9D//2vVjC5ICNBoNNdzvvfZNSCkT3PmZXQDm28KwJJvQjcAhAHimQLxTIF4pkA8UyCeKRDPFIhnCsQzBeKZAvFMgXimQDxTIJ4pEM8UiGcKxDMF4pkC8UyBeKZAPFMgnikQzxSIZwoF8afVUt1mYq0zu+ZsxElS/GHbf1h5zzdaQqvZzrunt/phdae5HdLOOp48MqN2kgdSFH8Q2/GZRhiI15jV3kojIF7x5514+rp5fpfbZqFUn1ZCPL2V04VYVlPX7VQ1v6j79ShE/aTs61/U9PNu8YNY7JvFqulluhRfLrqtXwDKjdwZ5Js/fVfePYp1O2sdIdPLoDa5bWD7Gmqb0rS8nlAu8utKlVAlh+jWhmjFK78fVmV/H2qN+UbePv9Ria+mLpup72r+2vzxcrea3Dz//N4s1k6XtrLSTmNN3j+UM5Re1N3F/iri994K5Uvw0sDuOsv7zRPNhHaROjlc70Ys/rRSQ+/5/bRSg+3pTd2RyE39aVX2W75Z7Jupav7LTiCr75V9rV4y2/LOsrgsVk9f7Etbv67Wl+F6Wq3zzY/li0FGL+V621mrCEm9mViXL49OAy8RVVM6La8mqEXk1DrZa4deEa34o+zkvNzUV9ttIRXV41jqVU9Lvc3U/pazOdCvd6uZ3GDLEdYuVk0/yOUXf+5up/PN8vTxy8f9Qaoth/eyaGetIgq1kZHPqtdQr4HNBmddl1A/0UxoF6mTQ5KQeLU3l7c98c3Uo+h05GU4aYivXjjt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" alt="plot of chunk unnamed-chunk-9"/> </p>
+
+<p>kobiet (umieszczając na tle rozkładu normalnego)</p>
+
+<pre><code class="r">f(diagnozaOsoby2011$fp55, &quot;k&quot;, T)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAwFBMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OQA5OWU5OY85ZmU5ZrU5j485j7U5j9plAABlADllAGVlOQBlOTllOY9lZgBlZjllZmVlZrVltbVltf2POQCPOTmPOWWPZgCPjzmPj2WPtY+PtdqP27WP29qP2/21ZgC1Zjm1ZmW1tWW124+1/rW1/tq1/v2+vr7ajzna24/a29ra/rXa/tra/v39tWX924/9/rX9/tr9/v3/AAANb4dZAAAAQHRSTlP//////////////////////////////////////////////////////////////////////////////////wD/fF2juwAAAAlwSFlzAAALEgAACxIB0t1+/AAAFUNJREFUeJztnYma4sYVRl09dgfGcWehZxzHTqDtxEkgiZ2OHLtZxPu/VWrTioBSqSTVrfufzx5oIf2UdKhFC+iTHLDkk7kLAOYB4pkC8UyBeKZAPFMgnikQzxSIZwrEMwXimQLxTIF4pkA8UyCeKRDPFIhnCsQzBeKZAvFMgXimQDxTIJ4pEM8UiGdKCuIPy4V+zMTKZXbH2RKHpPjduvmn8X58dhJqZjtt3r3aP82T4vGSctb7yXdmdE6aAIrid2J9f6Y7XIh3mDXcm0ZAvOJPG/Hux+fHN9U2C636sBTi3aucLsTCTF2VU/X8wm7XvRD2RbWt/62nnzYPX4uHbbGYmS7TlXi56Np+ALQb1Rkcnz/7Uj7di1U5q41Q6TKoTC4LWH6GyqIUJbcT5CI/LPUqmOQ5NmtBtOK130+XcnvvrMbjs3p8/MWIN1MXxdQ3Pb81v6+emsnF649vxWLldGUrk3YKa+r5Ts4gveinD9tWxM+NN1QfwaqA9feUz4sXignlIjZ5vq0bsfjDUle9x7fDUle2d6/6iUI19Yel3G7H54dtMVXPX3UCmX0mt7X+yKzlk0VeLWanP2ylrR+Wq6q6Hpar4/M38sOgohfqfctZTYTCNhMr+fGoFbCKMEWpldxM0IuoqTZ50g3aIlrxe7WRj7KpN+22UIpsPVZ69ctKbzG12XIWA33brWaqwVY1rFzMTN+p5R9+XW+nj8+Lw/vv3293Sq2s3ou8nNVE5LqRUa/q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" alt="plot of chunk unnamed-chunk-10"/> </p>
+
+<pre><code>## odchylenie standardowe =  6.26575665206126
+## średnia =  163.27454868709
+</code></pre>
+
+<p>Oraz wagi w całej populacji</p>
+
+<pre><code class="r">f(diagnozaOsoby2011$fp56, &quot;k&quot;, T)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAwFBMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OQA5OWU5OY85ZmU5ZrU5j485j7U5j9plAABlADllAGVlOQBlOTllOY9lZgBlZjllZmVlZrVltbVltf2POQCPOTmPOWWPZgCPjzmPj2WPtY+PtdqP27WP29qP2/21ZgC1Zjm1ZmW1tWW124+1/rW1/tq1/v2+vr7ajzna24/a29ra/rXa/tra/v39tWX924/9/rX9/tr9/v3/AAANb4dZAAAAQHRSTlP//////////////////////////////////////////////////////////////////////////////////wD/fF2juwAAAAlwSFlzAAALEgAACxIB0t1+/AAAFOhJREFUeJztnQub47QVhvEMTJNdmF4y7HbLtpmBlrYJhWVqCrk5//9fVZLla+zEkizryOd7H5ZkHEtW9FrSkewkn2WAJZ+FLgAIA8QzBeKZAvFMgXimQDxTIJ4pEM8UiGcKxDMF4pkC8UyBeKZAPFMgnikQzxSIZwrEMwXimQLxTIF4pkA8UyCeKRDPlDmIPywX6jFNVkN2H7jbzIlS/Hbd/DP3fnwaJDTf7fR8/6r/zJ8Uj5eUu97O+caOg3OagBjFb5P17Z1ucCF+wK7jHZQAdMWfnpP7T08PO9k3J0r1YZkk969ie5Is8q2rcqvaP9H1uk8S/aKs6x/V9tPz3TfJ3aZIlm8XuUvxIulanwDKjRwMjk9fvBdP98mq3FVnIXMXGZU5lwUsz6GyKEXJ9QaR5Kelegt5ziGqtYCseOX386Wo763WeHySjw+/5eLzrYti607tr83vq6f55uL1h12RrNwubaXCTmFNPt+KHYQX9fRu08ri18YB5SlYFbB+TPG8eKHYUCbROYerXcLiD0vV9B52h6VqbPev6olEdvWHpai349Pdptiq9q8GgVQ/E3WtTpm1eLLIqmR6+91G2Pppuaqa62G5Oj59FCeDzHohj1vummch0d3ESpwetQJWWeRFqZU836CSyK0650krtAVZ8XtZyUfR1ef9diIV6XYs9aqXpd5ia7PnLAJ9PaymssOWLaxMlm/fyvR3X9b76ePT4vDm+zebrVQrmvciK3fNs8hU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" alt="plot of chunk unnamed-chunk-11"/> </p>
+
+<pre><code>## odchylenie standardowe =  12.6568231660586
+## średnia =  67.4380612874477
+</code></pre>
+
+</body>
+
+</html>
+

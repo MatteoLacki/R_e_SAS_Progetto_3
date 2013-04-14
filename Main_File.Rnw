@@ -33,5 +33,9 @@
   \section{Examplary Fastness Comparison}
   	\SweaveInput{Tex/examplary_fastness_comparison.Rnw}
 
+    Dodalem tekst.-----------
+
+
+    Dodam Matko !
 
 \end{document}

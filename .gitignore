@@ -13,6 +13,7 @@
 *.md
 
 *.Rnw~
+
 *.R~
 *.synctex.gz
 *.tex
@@ -23,6 +24,7 @@
 *.pdf
 *.csv
 *.RData
+*.png
 
 # Packages #
 ############
