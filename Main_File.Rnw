@@ -24,7 +24,7 @@
 	  rm(list=ls())
     source("./Scripts/setting_up_libraries.R")
     #source("./Scripts/data_generation.R")
-    #source("./Scripts/testing_time_of_downloading_over_the_internet.R")
+    #source("./Scripts/testing_time_of_retrieving_data.R")
 @
 
 
