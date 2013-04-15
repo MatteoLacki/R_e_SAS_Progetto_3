@@ -16,6 +16,7 @@ qplot(carat, price, data = diamonds)
 qplot(carat, price, data = diamonds, colour=clarity)
 qplot(carat, price, data = diamonds, geom=c("point", "smooth"), method=lm)
 
+
 qplot(carat, data = diamonds, geom="histogram")
 qplot(carat, data = diamonds, geom="histogram", binwidth = 1)
 qplot(carat, data = diamonds, geom="histogram", binwidth = 0.1)
@@ -24,6 +25,7 @@ qplot(carat, data = diamonds, geom="histogram", binwidth = 0.01)
 
 Same output!
 qplot(clarity, data=diamonds, fill=cut, geom="bar")
+
 Test <- ggplot(diamonds, aes(clarity, fill=cut)) 
 Test + geom_bar()
 

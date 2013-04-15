@@ -1,0 +1,16 @@
+In the present section we deal with satisfaction. Our results are gathered in Figure \ref{satisfaction}.
+
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}
+  \centering
+<<fig=true>>==        % sweave understands that it will be a figure      
+source("./Scripts/satisfaction.R")
+  
+print(satisfaction)
+@
+  \caption{Age distribution in Poland with overlayed satisfaction levels.}
+  \label{satisfaction}
+  \end{figure}
+}

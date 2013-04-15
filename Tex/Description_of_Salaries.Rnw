@@ -1,0 +1,27 @@
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}
+  \centering
+<<fig=true>>==        % sweave understands that it will be a figure      
+source("./Scripts/Histogram_Salary.R")
+  
+print(Histogram_Salary)
+@
+  \caption{Salary per month by gender in Poland.}
+  \end{figure}
+}
+
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}
+  \centering
+<<fig=true>>==        % sweave understands that it will be a figure      
+source("./Scripts/Histogram_Salary.R")
+  
+print(Histogram_Salary_modified)
+@
+  \caption{Salary less than PLN $5000$ per month  by gender in Poland.}
+  \end{figure}
+}

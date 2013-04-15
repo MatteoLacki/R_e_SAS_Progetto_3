@@ -1,20 +1,25 @@
 dane <- read.csv2("Data/prepared_data.csv")
+
+dane <- na.omit(dane)
+
+
 comparing_times <- read.csv2("Data/time_of_downloading_over_the_internet.csv")
 
 
 # C'è un nome inglese per Województwo :)
 # Non avremo piu bisogno di nomi dei dati in tabella originale. Per questo cambiamoli.
 variables_of_interest <- c( "Voivodship",
-                            "Settlement class", 
+                            "Settlement_class", 
                             "Gender",
-                            "Age in 2007", 
-                            "Sattisfaction",
-                            "English Skills",
+                            "Age_in_2007", 
+                            "Satisfaction",
+                            "English_Skills",
                             "Salary",
                             "Smoking", 
-                            "Time to office",
-                            "Office distance"
+                            "Time_to_office",
+                            "Distance_to_office"
 )
+
 
 colnames(dane) <- variables_of_interest
 
@@ -23,12 +28,12 @@ variables_description <- c( "About Voivodship",
                             "About Settlement class", 
                             "About Gender",
                             "About Age in 2007", 
-                            "About Sattisfaction",
+                            "About Satisfaction",
                             "About English Skills",
                             "About Salary",
                             "About Smoking", 
                             "About Time to office",
-                            "About Office distance"
+                            "About Distance to office"
 )
 
 variables_desciption_table <- cbind(variables_of_interest, variables_description)
