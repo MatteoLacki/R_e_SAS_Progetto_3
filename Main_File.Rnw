@@ -23,9 +23,9 @@
 <<results=hide>>=
 	  rm(list=ls())
     source("./Scripts/setting_up_libraries.R")
-    #source("./Scripts/data_generation.R")
-    #source("./Scripts/testing_time_of_retrieving_data.R")
 @
+    %source("./Scripts/data_generation.R")
+    %source("./Scripts/testing_time_of_retrieving_data.R")
 
 
 		% Here we generate the titlepage
@@ -42,8 +42,19 @@
   \section{Presenting data}
     \SweaveInput{Tex/presenting_data.Rnw}
 
-  \newpage
   \section{Comparing speed of operations}
   	\SweaveInput{Tex/fastness_comparison.Rnw}
+    
+  \section{New section}
+    \SweaveInput{Tex/Description_of_Salaries.Rnw}
+    
+  \section{Analysis of arrival time and distance to office}
+    \SweaveInput{Tex/Description_of_Distances.Rnw}
+    
+  \section{Analysis of satisfaction}
+    \SweaveInput{Tex/Description_of_Satisfaction.Rnw}
+   
+    
+
 
 \end{document}
