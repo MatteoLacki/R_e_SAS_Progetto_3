@@ -1,15 +1,20 @@
+In this section we shall address the question of salaries. In the old project there was no visualisation of the original distribution of salaries. Here it's represented in Figure \ref{salaries_all}.   
+
 
 {
   \setkeys{Gin}{width=1.0\textwidth}
-  \begin{figure}
+  \begin{figure}[h]
   \centering
 <<fig=true>>==        % sweave understands that it will be a figure      
 source("./Scripts/Histogram_Salary.R")
 print(Histogram_Salary)
 @
   \caption{Salary per month by gender in Poland.}
+  \label{salaries_all}
   \end{figure}
 }
+
+In our 
 
 
 <<Old_salaries, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/salaries>>= 
@@ -20,12 +25,11 @@ print(Histogram_Salary_modified_old)
 print(Histogram_Salary_modified_new)
 @
 
-\newpage
-
 \begin{landscape}
-  \thispagestyle{empty}
-  \noindent
-  \begin{figure}[ht]
+\thispagestyle{empty}
+\noindent
+
+  \begin{figure}[p]
     \begin{center}
     \subfloat[Before changes.]{
       \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/salaries-Old_salaries.pdf} 
@@ -37,4 +41,5 @@ print(Histogram_Salary_modified_new)
     \caption{Salary less than PLN $5000$ per month by gender in Poland.}
     \label{salaries}
   \end{figure}
+
 \end{landscape}

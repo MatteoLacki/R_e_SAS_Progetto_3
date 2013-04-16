@@ -10,12 +10,12 @@ print(old_distance)
 print(new_distance)
 @
 
-\newpage
 
 \begin{landscape}
+
   \thispagestyle{empty}
   \noindent
-  \begin{figure}[ht]
+  \begin{figure}[h]
     \begin{center}
     \subfloat[Before changes.]{
       \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-Old_distances.pdf} 
@@ -27,4 +27,5 @@ print(new_distance)
     \caption{Dependence between arrival time and distance to office.}
     \label{distance}
   \end{figure}
+
 \end{landscape}
