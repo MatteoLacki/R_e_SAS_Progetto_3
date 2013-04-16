@@ -12,7 +12,7 @@ print(distance)
   \end{figure}
 }
 
-<<CHUNK1, fig=TRUE, include=FALSE, echo=TRUE, eps=FALSE, width=3, height=7,prefix.string=./Picts/distance>>=
+<<CHUNK1, fig=TRUE, include=FALSE, echo=TRUE, eps=FALSE, prefix.string=./Picts/distance>>=
 print(distance)
 @
 
@@ -21,11 +21,22 @@ print(distance)
     \thispagestyle{empty}
     \noindent
 
-      \begin{tabular}{ c c }
-        \includegraphics[width=.5\textwidth]{Picts/distance-CHUNK1.pdf} & \includegraphics[width=.5\textwidth]{Picts/distance-CHUNK1.pdf}
-      \end{tabular}
+    
+      \begin{figure}[ht]
+        \begin{center}
+          \subfloat[Before changes.]{
+            \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+          }
+          \subfloat[After changes.]{
+            \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+          }          
+        \end{center}
+        
+        \caption{Dependence between arrival time and distance to office.}
+        \label{distance}
+      \end{figure}
 
-  
+
       
 \end{landscape}
 
