@@ -1,42 +1,25 @@
 
 
-{
-  \setkeys{Gin}{width=1.0\textwidth}
-  \begin{figure}
-  \centering
-<<fig=true>>==        % sweave understands that it will be a figure      
-source("./Scripts/distance_analysis.R")  
-print(distance)
-@
-  \caption{Dependence between arrival time and distance to office.}
-  \end{figure}
-}
 
 <<CHUNK1, fig=TRUE, include=FALSE, echo=TRUE, eps=FALSE, prefix.string=./Picts/distance>>=
+source("./Scripts/distance_analysis.R") 
 print(distance)
 @
 
+
 \begin{landscape}
-
-    \thispagestyle{empty}
-    \noindent
-
-    
-      \begin{figure}[ht]
-        \begin{center}
-          \subfloat[Before changes.]{
-            \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
-          }
-          \subfloat[After changes.]{
-            \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
-          }          
-        \end{center}
-        
-        \caption{Dependence between arrival time and distance to office.}
-        \label{distance}
-      \end{figure}
-
-
-      
+  \thispagestyle{empty}
+  \noindent
+  \begin{figure}[ht]
+    \begin{center}
+    \subfloat[Before changes.]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+    }
+    \subfloat[After changes.]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+    }          
+    \end{center}
+    \caption{Dependence between arrival time and distance to office.}
+    \label{distance}
+  \end{figure}
 \end{landscape}
-

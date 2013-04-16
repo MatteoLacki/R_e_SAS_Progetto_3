@@ -9,3 +9,15 @@ test <-
   }
 
 test(1,3)
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}
+  \centering
+  <<fig=true>>==        % sweave understands that it will be a figure      
+  source("./Scripts/distance_analysis.R")  
+  print(distance)
+  @
+  \caption{Dependence between arrival time and distance to office.}
+  \end{figure}
+}
