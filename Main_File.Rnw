@@ -37,17 +37,27 @@
   \section{Presenting project structure}
     \SweaveInput{Tex/presenting_project_structure.Rnw}
   
+  \newpage
+  
   \section{Presenting data}
     \SweaveInput{Tex/presenting_data.Rnw}
-    
+  
+  \newpage
+  
   \section{Analysis of salaries}
     \SweaveInput{Tex/Description_of_Salaries.Rnw}
-    
+  
+  \newpage
+  
   \section{Analysis of arrival time and distance to office}
     \SweaveInput{Tex/Description_of_Distances.Rnw}
     
+  \newpage    
+    
   \section{Analysis of satisfaction}
     \SweaveInput{Tex/Description_of_Satisfaction.Rnw}
+   
+  \newpage   
    
   \section{Comparing speed of operations}
     \SweaveInput{Tex/fastness_comparison.Rnw}

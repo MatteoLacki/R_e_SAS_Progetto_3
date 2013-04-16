@@ -62,7 +62,7 @@ Our project is divided in the way represented by Figure \ref{folder_structure}.
 \end{figure}
 
 
-To clarify plotting changes we have done within the new project the next table is as follows. 
+The differences in plotting strategies between our two projects are enlisted in the Table \ref{data_description}. 
 
 \begin{table}[ht]
 \centering
@@ -70,9 +70,9 @@ To clarify plotting changes we have done within the new project the next table i
   \hline
 Type of analysis                          & Old project plotting     & New project plotting \\
   \hline
-  Analysis of satisfaction by life        & dotplot                  & qplot   \\ 
-  Analysis of salaries by gender          & densityplot              & densityplot and qplot\\ 
-  Analysis of Time and Distance to office & xyplot                   & \\ 
+  Life satisfaction                       & dotplot                  & qplot   \\ 
+  Salaries by gender                      & densityplot              & densityplot and qplot\\ 
+  Time and Distance to office             & xyplot                   & \\ 
   General analysis of data                & levelplot                &  \\ 
 %  Settlement\_class                       &                          &         \\ 
 %  Gender                                  &                          &         \\ 
@@ -80,6 +80,7 @@ Type of analysis                          & Old project plotting     & New proje
 %  Satisfaction                            &                          &         \\ 
  \hline
 \end{tabular}
- \caption{Comparing two project plotting systems}\label{data_description}
+ \caption{Comparing two project plotting systems}
+ \label{data_description}
 \end{table}
 

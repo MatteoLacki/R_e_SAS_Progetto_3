@@ -1,5 +1,5 @@
 dane <- read.csv2("Data/prepared_data.csv")
-dane <- na.omit(dane)
+#dane <- na.omit(dane)
 
 
 comparing_times <- read.csv2("Data/time_of_downloading_over_the_internet.csv")
@@ -99,10 +99,10 @@ colnames(variables_desciption_table) <- c("Variable name", "Variable description
 #####################################################################################################################################
 
   # Preparing data on partitions.
+
 austrian_partition_names  <- c("Malopolskie", "Podkarpackie")
 prussian_partition_names  <- c("Slaskie", "Opolskie", "Wielkopolskie", "Kujawsko-pomorskie", "Pomorskie")
 russian_partition_names   <- c("Lodzkie", "Dolnoslaskie", "Mazowieckie", "Lubelskie", "Swietokrzyskie", "Podlaskie")
-
 
 austrian_partition_data   <- dane[is.element(dane$Voivodship,austrian_partition_names),]                  
 prussian_partition_data   <- dane[is.element(dane$Voivodship,prussian_partition_names),]

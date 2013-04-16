@@ -15,7 +15,7 @@ print(new_distance)
 
 
 
-  \begin{figure}[p]
+  \begin{figure}[h]
     \begin{center}
     \subfloat[Before changes.]{
       \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-Old_distances.pdf} 

@@ -1,20 +1,43 @@
-In the present section we deal with satisfaction. Our results are gathered in Figure \ref{satisfaction}.
+In the present section we deal with satisfaction. Our results are gathered in Figure \ref{satisfaction}. 
 
 
 {
   \setkeys{Gin}{width=1.0\textwidth}
-  \begin{figure}
+  \begin{figure}[h]
   \centering
 <<fig=true>>==        % sweave understands that it will be a figure      
 source("./Scripts/satisfaction.R")
-  
-print(satisfaction)
+print(satisfaction_new)
 @
   \caption{Age distribution in Poland with overlayed satisfaction levels.}
   \label{satisfaction}
   \end{figure}
 }
 
+We further provide Figure \ref{satisfaction_comparing} for comparing both previous and new approach to presenting data on satisfaction-age distribution. Note that our approach uses the natural ordering of both variables of interest: age is being shown in the popular age-pyramid style, and satisfaction levels are overlayed on the pyramid. Observe also that this figure uses a more natural approach to displaying various tints of the same colour, i.e. green, so that the reader does not have to remember the ordering of colours accoring to their spectra. 
 
 
+<<Old_satisfaction, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/satisfaction>>=
+#source("./Scripts/satisfaction.R") 
+print(satisfaction_old)
+@
+
+<<New_satisfaction, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/satisfaction>>=
+print(satisfaction_new)
+@
+
+
+
+  \begin{figure}[h]
+    \begin{center}
+    \subfloat[Before changes.]{
+      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/satisfaction-Old_satisfaction.pdf} 
+    }
+    \subfloat[After changes.]{
+      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/satisfaction-New_satisfaction.pdf} 
+    }          
+    \end{center}
+    \caption{Dependence between satisfaction and age in two completely different approaches.}
+    \label{satisfaction_comparing}
+  \end{figure}
 
