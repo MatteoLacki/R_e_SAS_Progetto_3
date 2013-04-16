@@ -1,11 +1,16 @@
 
+In this section we shall compare our graphical approach to the question of mutual dependencies between arrival time and distance to office. Observe how we gently create good stuff.
 
-
-<<CHUNK1, fig=TRUE, include=FALSE, echo=TRUE, eps=FALSE, prefix.string=./Picts/distance>>=
+<<Old_distances, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/distance>>=
 source("./Scripts/distance_analysis.R") 
-print(distance)
+print(old_distance)
 @
 
+<<New_distances, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/distance>>=
+print(new_distance)
+@
+
+\newpage
 
 \begin{landscape}
   \thispagestyle{empty}
@@ -13,10 +18,10 @@ print(distance)
   \begin{figure}[ht]
     \begin{center}
     \subfloat[Before changes.]{
-      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-Old_distances.pdf} 
     }
     \subfloat[After changes.]{
-      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-CHUNK1.pdf} 
+      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-New_distances.pdf} 
     }          
     \end{center}
     \caption{Dependence between arrival time and distance to office.}

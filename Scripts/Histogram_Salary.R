@@ -15,10 +15,20 @@ Histogram_Salary<-
         theme(legend.position="top")
 
 
+Histogram_Salary_modified_old <-
+  densityplot(
+              ~Salary[Salary<5000], 
+              data=dane,
+              plot.points = FALSE,
+              groups = Gender[drop=T],
+              auto.key = TRUE,
+              xlab="Salary",
+              ylab="Density",
+              )
 
 # to draw histogram in ggplot2
 
-Histogram_Salary_modified <- 
+Histogram_Salary_modified_new <- 
   qplot(
           Salary, 
           data=dane[Salary  < 5000,], 

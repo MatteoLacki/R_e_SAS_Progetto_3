@@ -41,9 +41,6 @@
   
   \section{Presenting data}
     \SweaveInput{Tex/presenting_data.Rnw}
-
-  \section{Comparing speed of operations}
-  	\SweaveInput{Tex/fastness_comparison.Rnw}
     
   \section{New section}
     \SweaveInput{Tex/Description_of_Salaries.Rnw}
@@ -54,6 +51,9 @@
   \section{Analysis of satisfaction}
     \SweaveInput{Tex/Description_of_Satisfaction.Rnw}
    
+  \section{Comparing speed of operations}
+    \SweaveInput{Tex/fastness_comparison.Rnw}
+
 
 
   % Removing everything from workspace.

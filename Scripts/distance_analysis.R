@@ -5,8 +5,17 @@ attach(dane)                                           # to call the collumnes
 #colnames(dane)
 
 
+old_distance <- 
+  xyplot(
+        Time_to_office~Distance_to_office, 
+        data=dane,
+        type = c("p", "r"),
+        xlab="Distance to office",
+        ylab="Time to office",
+  )
+
   # ns(x,3) creates cubic splines with 3 degrees of freedom.
-distance <- ggplot(
+new_distance <- ggplot(
                     dane,
                     aes(
                       x=Distance_to_office ,
