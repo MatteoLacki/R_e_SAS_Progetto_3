@@ -41,6 +41,48 @@ colnames(dane) <- variables_of_interest
 #####################################################################################################################################
 
   levels(dane$Gender) <- c("woman", "man")
+
+
+
+#####################################################################################################################################
+
+#levels(dane$Zabior) <- c ("Austrian", "Prussian","Russian") 
+
+partitions <- Voivodship
+
+
+levels(partition) <= c("BD/ND/FALA", "Pruski","Pruski","Rosyjski","Pruski","Rosyjski",
+                              "Rosyjski","Pruski", "Austriacki","Rosyjski","Pruski",
+                              "Pruski","Pruski","Pruski")
+
+austrian_partition  <- c("Maloposlkie", "Podkarpackie")
+                            
+                            
+                            )
+
+prussian_partition  <- c("Dolnoslaskie",)
+
+russian_partition   <- c("Slaskie", "Opolskie", "Dolnoslaskie", "Lubuskie", "Wielkopolskie", "Kujawsko-pomorskie")
+  
+  "Kujawsko-pomorskie", 
+                         "Lodzkie",  
+                         "Lubelskie",  
+                         "Lubuskie", 
+                         "Mazowieckie", 
+                         "Zachodniopomorskie")
+
+
+partitions          <- list(austrian_partition, prussian_partition, russian_partition)
+
+dane[is.element(Voivodship,Zabor_austraicki),]
+
+
+dane_zabor_austriacki
+
+
+
+dane[,7] = ( 5 - as.numeric(dane[,7]) )
+
   
 #####################################################################################################################################
 
@@ -90,7 +132,7 @@ variables_description <- c( "Title of Voivodship (WOJEWODSTWO)",
                             "Salary/benefit monthly (netto) within last three months (dp72)",
                             "Smoking currently (dp56)", 
                             "How much time pricisely is spent to arrive from accomodation to office (dp114)",
-                            "Which distance is between accomodation and office"
+                            "Which distance is between accomodation and office (dp115)"
 )
 
 

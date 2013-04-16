@@ -14,7 +14,7 @@ print(Histogram_Salary)
   \end{figure}
 }
 
-In the previous project two overlayed density plots ware used to show distributions of income with distinction to gender. We used the \url{ggplot2} histograms to plot distributions of salaries instead. Then, we filled the histograms with two colours to show differences among men and women. The results were gathered in Figure \ref{salaries}, where the careful reader will find the comparison between the two approaches. We shall also show here our code for generating plots in Figure \ref{salaries}, for ther are an example of transparency.   
+In the previous project two overlayed density plots ware used to show distributions of income with distinction to gender. We used the \url{ggplot2} histograms to plot distributions of salaries instead. Then, we filled the histograms with two colours to show differences among men and women.
 
 \begin{lstlisting}
 attach(dane)
@@ -42,6 +42,9 @@ Histogram_Salary_modified_new <-
         
 detach(dane)
 \end{lstlisting}
+
+The results were gathered in Figure \ref{salaries}, where the careful reader will find the comparison between the two approaches. We shall also show here our code for generating plots in Figure \ref{salaries}, for ther are an example of transparency.   
+
 
 \begin{lstlisting}
 <<Old_salaries, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/salaries>>= 
