@@ -1,3 +1,8 @@
+In our work there was place for only one highly significant speed acceleration. Because of the nature of the data, the Social Diagnosis, there is no use whatsoever to frequently upload new versions of data from the internet. There are no new chunks of data frequently changed - the polls are conveyed in two years time. 
+
+
+Therefore, as mentioned before, we settled on downloading the data only once, preparing it, and then opening only a prepared \url{comma} \url{separated} \url{file}. The resulting timings, although highly dependable on the user's internet bandwidth, are gathered in Figure \ref{data_speed}.  
+
 
 {
   \setkeys{Gin}{width=1.0\textwidth}

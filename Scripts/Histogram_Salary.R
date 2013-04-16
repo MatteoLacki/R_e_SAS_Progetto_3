@@ -43,4 +43,39 @@ detach(dane)
 
 #print(Histogram_Salary)
 
+###################################################PRUSSIA
+attach(prussian_partition_data)
 
+salary_prussia <- 
+                qplot(
+                  Salary, 
+                  data=prussian_partition_data[Salary  < 5000,], 
+                  fill=Gender, 
+                  ylab = "Number of people", 
+                  geom="bar",
+                  binwidth=200
+                ) + 
+                theme(legend.position="top") +
+                scale_fill_brewer(palette=14)
+#print(salary_prussia)
+
+detach(prussian_partition_data)
+###################################################RUSSIA
+attach(russian_partition_data)
+
+
+salary_russia <- 
+                qplot(
+                  Salary, 
+                  data=russian_partition_data[Salary  < 5000,], 
+                  fill = Gender,
+                  ylab = "Number of people", 
+                  geom="bar",
+                  binwidth = 200,
+                ) + 
+                theme(legend.position="top") +
+                scale_fill_brewer(palette=16) 
+#print(salary_russia)
+
+detach(russian_partition_data)
+###################################################

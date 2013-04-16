@@ -42,7 +42,44 @@ satisfaction_new <-
   scale_fill_brewer(palette=2, name="Satisfaction level") +
   ylim(0, 900)
 
-satisfaction_new
 
 detach(dane)
+###################################################PRUSSIA
+attach(prussian_partition_data)
 
+satisfaction_prussia <- 
+  qplot(
+    Age_in_2007, 
+    data=prussian_partition_data, 
+    xlab = "Age in 2007",
+    ylab = "Number of people", 
+    geom="bar",
+    binwidth = 3,
+    fill = Satisfaction
+  ) + 
+  coord_flip() + 
+  scale_fill_brewer(palette=1, name="Satisfaction level") +
+  ylim(0, 150)
+
+
+detach(prussian_partition_data)
+###################################################RUSSIA
+attach(russian_partition_data)
+
+satisfaction_russia <- 
+  qplot(
+    Age_in_2007, 
+    data=russian_partition_data, 
+    xlab = "Age in 2007",
+    ylab = "Number of people", 
+    geom="bar",
+    binwidth = 3,
+    fill = Satisfaction
+  ) + 
+  coord_flip() + 
+  scale_fill_brewer(palette=3, name="Satisfaction level") +
+  ylim(0, 45)
+
+
+detach(russian_partition_data)
+###################################################

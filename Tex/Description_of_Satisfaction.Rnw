@@ -26,18 +26,39 @@ print(satisfaction_old)
 print(satisfaction_new)
 @
 
-
-
-  \begin{figure}[h]
+  \begin{figure}[t]
     \begin{center}
     \subfloat[Before changes.]{
-      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/satisfaction-Old_satisfaction.pdf} 
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/satisfaction-Old_satisfaction.pdf} 
     }
     \subfloat[After changes.]{
-      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/satisfaction-New_satisfaction.pdf} 
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/satisfaction-New_satisfaction.pdf} 
     }          
     \end{center}
     \caption{Dependence between satisfaction and age in two completely different approaches.}
     \label{satisfaction_comparing}
   \end{figure}
 
+We have also prepared subdivision of data into information on people from different partitions. The results are gathered in Figure \ref{satisfaction_partitions2}. There were no interviewees in what should be called Austrian Partition in our data set.  
+
+<<satisfaction_russia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/satisfaction>>=
+#source("./Scripts/satisfaction.R") 
+print(satisfaction_russia)
+@
+
+<<satisfaction_prussia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/satisfaction>>=
+print(satisfaction_prussia)
+@
+
+  \begin{figure}[t]
+    \begin{center}
+    \subfloat[Russian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/satisfaction-satisfaction_russia.pdf} 
+    }
+    \subfloat[Prussian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/satisfaction-satisfaction_prussia.pdf} 
+    }          
+    \end{center}
+    \caption{Dependence between satisfaction and age in two of free partitions.}
+    \label{satisfaction_partitions2}
+  \end{figure}

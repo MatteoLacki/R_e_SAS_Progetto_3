@@ -15,16 +15,39 @@ print(new_distance)
 
 
 
-  \begin{figure}[h]
+  \begin{figure}[t]
     \begin{center}
     \subfloat[Before changes.]{
-      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-Old_distances.pdf} 
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-Old_distances.pdf} 
     }
     \subfloat[After changes.]{
-      \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-New_distances.pdf} 
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-New_distances.pdf} 
     }          
     \end{center}
     \caption{Dependence between arrival time and distance to office.}
     \label{distance}
   \end{figure}
 
+We have also prepared subdivision of data into information on people from different partitions. The results are gathered in Figure \ref{satisfaction_partitions}. There were no interviewees in what should be called Austrian Partition in our data set.  
+
+<<distance_russia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/distance>>=
+#source("./Scripts/satisfaction.R") 
+print(distance_prussia)
+@
+
+<<distance_prussia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/distance>>=
+print(distance_prussia)
+@
+
+  \begin{figure}[t]
+    \begin{center}
+    \subfloat[Russian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-distance_russia.pdf} 
+    }
+    \subfloat[Prussian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/distance-distance_prussia.pdf} 
+    }          
+    \end{center}
+    \caption{Dependence between arrival time and distance to office in two of free partitions.}
+    \label{satisfaction_partitions}
+  \end{figure}

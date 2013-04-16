@@ -11,31 +11,41 @@ The second project lacked a good naming strategy of variables and a nice present
   rm(variables_desciption_table)
 @
 
-Moreover, it seems unreasonable to download every time the \url{diagnozaOsoby2011.Rdata} file, for it is big and considerably slows the compilation process. It seems also unreasonable to store the whole file in the workspace, if we are to use only a small section of it consisting of several columns only. 
+We have also noticed that the analysis conducted in the previous project, on the differences between partitions of Poland, were flawed. Because of historic geopolitical reasons one cannot possibly state, that the modern inhabitants of Voivodships such as Dolnoslaskie, Lubuskie, Zachodnio-Pomorskie, or Warminsko-Mazurskie are in any way linked with the cultural legacy of the partions. One should note that after the Second World War displacements of population many of the inhabitants of the western parts of Poland were of eastern origin. Therefore we settled to restrict our analysis to Voivodships that were not directions of the flux of after-war migrations. We enlisted the details in Table \ref{partition_subsets}.  
 
-Therefore instead of 
+\begin{table}[ht]
+\centering
+\begin{tabular}{lc}
+  \hline
+Partition                                 & Included Voivodships \\
+  \hline
+  Austrian      &    Malopolskie, Podkarpackie \\ 
+  Prussian      &    Slaskie, Opolskie, Wielkopolskie, Kujawsko-pomorskie, Pomorskie \\ 
+  Russian       &    Lodzkie, Dolnoslaskie, Mazowieckie, Lubelskie, Swietokrzyskie, Podlaskie \\
+ \hline
+\end{tabular}
+ \caption{Defining properly the partition subsets.}
+ \label{partition_subsets}
+\end{table}
 
-\begin{lstlisting}
-con <- url("http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData")
-load(con)
-\end{lstlisting}
+The differences in plotting strategies between our two projects are enlisted in the Table \ref{data_description_plot}. 
 
-we settled for 
-
-\begin{lstlisting}
-load("./Data/diagnozaOsoby2011.RData")
-
-variables_of_interest <- c("WOJEWODZTWO", "KLASA_MIEJSOWOSCI", "PLEC","wiek2007", "dp3", "dc18", "dp72",  "dp56", "dp114", "dp115" )
-
-dane <- diagnozaOsoby2011[,variables_of_interest]
-
-write.csv2(dane, "Data/prepared_data.csv", row.names = FALSE)
-
-rm(diagnozaOsoby2011) 
-rm(dane)
-
-\end{lstlisting}
-
-We thing that it is a good custom to remove the no longer necessary variables. 
-
-Having prepared the data, we write a compact \url{csv} file which contains information on only the variables of interest and then upload it every time a complation is executed. The whole process saves much time if we are to recompile the file many times on a given set. The timings are presented in the timings section.
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+  \hline
+Type of analysis                          & Old project plotting     & New project plotting \\
+  \hline
+  Life satisfaction                       & dotplot                  & qplot   \\ 
+  Salaries by gender                      & densityplot              & densityplot and qplot\\ 
+  Time and Distance to office             & xyplot                   & \\ 
+  General analysis of data                & levelplot                &  \\ 
+%  Settlement\_class                       &                          &         \\ 
+%  Gender                                  &                          &         \\ 
+%                                          &                          &         \\ 
+%  Satisfaction                            &                          &         \\ 
+ \hline
+\end{tabular}
+ \caption{Comparing two project plotting systems}
+ \label{data_description_plot}
+\end{table}

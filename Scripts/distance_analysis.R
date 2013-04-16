@@ -30,8 +30,46 @@ new_distance <- ggplot(
                   theme(legend.position="top") +
                   scale_colour_discrete(name = "Gender") 
 
-
 detach(dane)
+###################################################PRUSSIA
+attach(prussian_partition_data)
 
+distance_prussia <- ggplot(
+                    prussian_partition_data,
+                      aes(
+                          x=Distance_to_office ,
+                          y=Time_to_office,
+                          colour=Gender
+                      )
+                    ) + 
+                    geom_point(size = 3) + 
+                    xlab("Distance to office") + 
+                    ylab("Time to office") +
+                    stat_smooth(method="lm", formula= y ~ ns(x,3), aes(fill = Gender), level=.99, alpha=.1) +
+                    theme(legend.position="top") +
+                    scale_colour_discrete(name = "Gender") 
+#print(distance_prussia)
 
+detach(prussian_partition_data)
+###################################################RUSSIA
+attach(russian_partition_data)
 
+distance_russia <- ggplot(
+                        russian_partition_data,
+                        aes(
+                            x=Distance_to_office ,
+                            y=Time_to_office,
+                            colour=Gender
+                          )
+                        ) + 
+                        geom_point(size = 3) + 
+                        xlab("Distance to office") + 
+                        ylab("Time to office") +
+                        stat_smooth(method="lm", formula= y ~ ns(x,3), aes(fill = Gender), level=.99, alpha=.1) +
+                        theme(legend.position="top") +
+                        scale_colour_discrete(name = "Gender") 
+
+#print(distance_russia)
+
+detach(russian_partition_data)
+###################################################

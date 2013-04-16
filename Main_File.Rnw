@@ -18,7 +18,9 @@
 	\SweaveOpts{echo=false}	
 
 
-		% Here we prepare basic info. Run source("./Scripts/data_generation.R") only once to avoid messing up with big data matrix.
+		% Here we prepare basic info. Run source("./Scripts/data_generation.R")
+    % and source("./Scripts/testing_time_of_retrieving_data.R")
+    % only once to avoid messing up with big data matrices.
   
 <<results=hide>>=
 	  rm(list=ls())

@@ -3,7 +3,7 @@ In this section we shall address the question of salaries. In the old project th
 
 {
   \setkeys{Gin}{width=1.0\textwidth}
-  \begin{figure}[h]
+  \begin{figure}[t]
   \centering
 <<fig=true>>==        % sweave understands that it will be a figure      
 source("./Scripts/Histogram_Salary.R")
@@ -102,3 +102,27 @@ print(Histogram_Salary_modified_new)
   \end{figure}
 
 \end{landscape}
+
+We have also prepared subdivision of data into information on people from different partitions. The results are gathered in Figure \ref{salary_partitions}. There were no interviewees in what should be called Austrian Partition in our data set.  
+
+<<salary_russia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/salary>>=
+#source("./Scripts/satisfaction.R") 
+print(salary_russia)
+@
+
+<<salary_prussia, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/salary>>=
+print(salary_prussia)
+@
+
+  \begin{figure}[t]
+    \begin{center}
+    \subfloat[Russian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/salary-salary_russia.pdf} 
+    }
+    \subfloat[Prussian Partition]{
+      \includegraphics[keepaspectratio=true,width=.5\linewidth]{Picts/salary-salary_prussia.pdf} 
+    }          
+    \end{center}
+    \caption{Distributions of salaries with respect to gender in two of free partitions.}
+    \label{salary_partitions}
+  \end{figure}
