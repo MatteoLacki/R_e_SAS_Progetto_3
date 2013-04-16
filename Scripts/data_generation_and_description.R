@@ -81,16 +81,16 @@ colnames(dane) <- variables_of_interest
 #####################################################################################################################################
 
   # Description on http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011Opis.txt
-variables_description <- c( "About Voivodship",
-                            "About Settlement class", 
-                            "About Gender",
-                            "About Age in 2007", 
-                            "About Satisfaction",
-                            "About English Skills",
-                            "About Salary",
-                            "About Smoking", 
-                            "About Time to office",
-                            "About Distance to office"
+variables_description <- c( "Title of Voivodship (WOJEWODSTWO)",
+                            "Settlement class (KLASA_MIEJSOWOSCI)", 
+                            "Gender(PLEC)",
+                            "Age in 2007 (wiek2007)", 
+                            "Satisfaction by life (dp3)",
+                            "English Skills (dc18)",
+                            "Salary/benefit monthly (netto) within last three months (dp72)",
+                            "Smoking currently (dp56)", 
+                            "How much time pricisely is spent to arrive from accomodation to office (dp114)",
+                            "Which distance is between accomodation and office"
 )
 
 
