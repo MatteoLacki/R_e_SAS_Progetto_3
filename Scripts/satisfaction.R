@@ -3,17 +3,6 @@
 
 attach(dane)                                           # to call the collumnes 
 
-ordered_Satisfaction <- factor(
-  Satisfaction, 
-  levels=   c("OKROPNE", 
-              "NIESZCZESLIWE",
-              "NIEZBYT UDANE",
-              "ANI DOBRE, ANI ZLE",
-              "UDANE",
-              "DOSYC DOBRE",
-              "WSPANIALE"),
-  ordered=TRUE
-)
 satisfaction <- 
   qplot(
     Age_in_2007, 
@@ -22,7 +11,7 @@ satisfaction <-
     ylab = "Number of people", 
     geom="bar",
     binwidth = 3,
-    fill = ordered_Satisfaction
+    fill = Satisfaction
   ) + coord_flip() + scale_fill_brewer(palette=2, name="Satisfaction level") 
 
 

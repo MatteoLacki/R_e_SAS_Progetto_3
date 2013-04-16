@@ -6,13 +6,13 @@ attach(dane)                                           # to call the collumnes
 
 Histogram_Salary<- 
   qplot(
-    Salary, 
-    data=dane, 
-    fill=Gender, 
-    ylab = "Number of people", 
-    geom="bar"
-  ) + 
-  opts(legend.position="top")
+          Salary, 
+          data=dane, 
+          fill=Gender, 
+          ylab = "Number of people", 
+          geom="bar"
+        ) + 
+        theme(legend.position="top")
 
 
 
@@ -20,13 +20,13 @@ Histogram_Salary<-
 
 Histogram_Salary_modified <- 
   qplot(
-      Salary, 
-      data=dane[Salary  < 5000,], 
-      fill=Gender, 
-      ylab = "Number of people", 
-      geom="bar"
-      ) + 
-      opts(legend.position="top")
+          Salary, 
+          data=dane[Salary  < 5000,], 
+          fill=Gender, 
+          ylab = "Number of people", 
+          geom="bar"
+        ) + 
+        theme(legend.position="top")
 
 
 detach(dane)

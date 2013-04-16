@@ -14,3 +14,22 @@ print(distance)
 }
 
 
+\begin{landscape}
+    \thispagestyle{empty}
+    \noindent
+
+    {
+      \setkeys{Gin}{width=.5\linewidth}
+      \begin{figure}
+      \centering
+<<fig=true>>==        % sweave understands that it will be a figure      
+source("./Scripts/distance_analysis.R")
+      
+print(distance)
+@
+      \caption{Dependence between arrival time and distance to office.}
+      \end{figure}
+    }
+
+\end{landscape}
+

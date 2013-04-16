@@ -34,7 +34,7 @@
   \newpage  
   
   
-	%\tableofcontents
+	%\tableofcontenst
   %\newpage
   \section{Presenting project structure}
     \SweaveInput{Tex/presenting_project_structure.Rnw}
@@ -54,7 +54,12 @@
   \section{Analysis of satisfaction}
     \SweaveInput{Tex/Description_of_Satisfaction.Rnw}
    
-    
+
+
+  % Removing everything from workspace.
+<<results=hide>>=
+    rm(list=ls())
+@
 
 
 \end{document}
