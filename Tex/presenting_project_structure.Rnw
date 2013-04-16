@@ -68,7 +68,7 @@ To clarify plotting changes we have done within the new project the next table i
 \centering
 \begin{tabular}{lll}
   \hline
-Type of analysis                          & Old project plotting     & New project plotting 
+Type of analysis                          & Old project plotting     & New project plotting \\
   \hline
   Analysis of satisfaction by life        & dotplot                  & qplot   \\ 
   Analysis of salaries by gender          & densityplot              & densityplot and qplot\\ 
@@ -80,6 +80,6 @@ Type of analysis                          & Old project plotting     & New proje
 %  Satisfaction                            &                          &         \\ 
  \hline
 \end{tabular}
- \caption{Comparing two project plotting systems}\label{data_description.}
+ \caption{Comparing two project plotting systems}\label{data_description}
 \end{table}
 

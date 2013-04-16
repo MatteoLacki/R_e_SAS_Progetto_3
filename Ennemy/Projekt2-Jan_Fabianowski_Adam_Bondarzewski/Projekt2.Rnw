@@ -20,64 +20,64 @@
 
 \begin{document}
 
-\section{Opis zawartoœci}
-Raport zawiera przyk³ady u¿ycia funkcji graficznych, z naciskiem na u¿ycie pakiety $lattice$. W prezentacji pojawi¹ siê kolejne typy wykresów:
+\section{Opis zawarto?ci}
+Raport zawiera przyk?ady u?ycia funkcji graficznych, z naciskiem na u?ycie pakiety $lattice$. W prezentacji pojawi? si? kolejne typy wykres?w:
 
 \newline \newline
 \begin{tabular}{|c|c|}
 \hline
-Poziom zadowolenia z ¿ycia & $\textcolor{green}{dotplot}$  \\ \hline
-Zarobki wg p³ci & $\textcolor{green}{densityplot}$ \\ \hline
-Ogólna analiza danych i ich zale¿noœci & $\textcolor{green}{levelplot}$ \\ \hline
-Czas dojazdu do pracy a odleg³oœæ od pracy & $\textcolor{green}{xyplot}$ \\ \hline
+Poziom zadowolenia z ?ycia & $\textcolor{green}{dotplot}$  \\ \hline
+Zarobki wg p?ci & $\textcolor{green}{densityplot}$ \\ \hline
+Og?lna analiza danych i ich zale?no?ci & $\textcolor{green}{levelplot}$ \\ \hline
+Czas dojazdu do pracy a odleg?o?? od pracy & $\textcolor{green}{xyplot}$ \\ \hline
 \end{tabular}.
 \newline \newline
 
-Analizowane dane pochodz¹ z pliku diagnoza osoby
+Analizowane dane pochodz? z pliku diagnoza osoby
 <<>>=
 con <- url("http://tofesi.mimuw.edu.pl/~cogito/smarterpoland/Diagnoza2011/diagnozaOsoby2011.RData")
 load(con)
 @
 
 
-Analiza danych dzieli siê na dwa etapy. Pierwszy polega na analizowaniu danych w skali ca³ego kraju. Drugi - przeprowadzeniu odpowiedniej analizy, dziel¹c dane ze wzglêdu na granice zaborów z 1815 roku.
+Analiza danych dzieli si? na dwa etapy. Pierwszy polega na analizowaniu danych w skali ca?ego kraju. Drugi - przeprowadzeniu odpowiedniej analizy, dziel?c dane ze wzgl?du na granice zabor?w z 1815 roku.
 
-Poniewa¿ dok³adne odtworzenie granic rozbiorów na podstawie dostêpnych danych jest niemo¿liwe, staraliœmy siê je odtworzyæ mniej wiêcej, przyporz¹dkowuj¹c poszczególne województwa do jednego z trzech zaborów w nastêpuj¹cy sposób:
+Poniewa? dok?adne odtworzenie granic rozbior?w na podstawie dost?pnych danych jest niemo?liwe, starali?my si? je odtworzy? mniej wi?cej, przyporz?dkowuj?c poszczeg?lne wojew?dztwa do jednego z trzech zabor?w w nast?puj?cy spos?b:
 
 \begin{enumerate}
-\item do zaboru austriackiego województwa ma³opolskie, podkarpackie,
-\item pruskiego - warmiñsko-mazurskie, pomorskie, zachodniopomorskie, lubelskie, wielkopolskie, dolnoœl¹skie, opolskie, œl¹skie, kujawsko-pomorskie,
-\item rosyjskiego - lubelskie, podlaskie, mazowieckie, ³ódzkie, œwiêtokrzyskie.
+\item do zaboru austriackiego wojew?dztwa ma?opolskie, podkarpackie,
+\item pruskiego - warmi?sko-mazurskie, pomorskie, zachodniopomorskie, lubelskie, wielkopolskie, dolno?l?skie, opolskie, ?l?skie, kujawsko-pomorskie,
+\item rosyjskiego - lubelskie, podlaskie, mazowieckie, ??dzkie, ?wi?tokrzyskie.
 \end{enumerate}
 
-Jako dodatek zamieszczamy na koñcu rêcznie wykonan¹ funkcjê, nak³adaj¹c¹ na mapê Polski dane, przyporz¹dkowuj¹c je poszczególnym województwom. Choæ nie mogliœmy dla niej znaleŸæ miejsca w nowej koncepcji projektu, ¿al by³o nam pozbywaæ siê kilkudziesiêciu minut pracy. Funkcja jest u¿yta do analizy zakresu eksperymentwoania z narkotykami w kraju.
+Jako dodatek zamieszczamy na ko?cu r?cznie wykonan? funkcj?, nak?adaj?c? na map? Polski dane, przyporz?dkowuj?c je poszczeg?lnym wojew?dztwom. Cho? nie mogli?my dla niej znale?? miejsca w nowej koncepcji projektu, ?al by?o nam pozbywa? si? kilkudziesi?ciu minut pracy. Funkcja jest u?yta do analizy zakresu eksperymentwoania z narkotykami w kraju.
 
 
 
-\section{Wczytywanie i obróbka danych}
+\section{Wczytywanie i obr?bka danych}
 
-Dane wczytujemy z zadeklarowanego powy¿ej linku, nastêpnie wybieramy spoœród wszystkich dane nas interesuj¹ce, czyli
+Dane wczytujemy z zadeklarowanego powy?ej linku, nast?pnie wybieramy spo?r?d wszystkich dane nas interesuj?ce, czyli
 
 \begin{enumerate}
-\item województwo,
+\item wojew?dztwo,
 \item klasa miejscowosci,
 <<>>=
 levels(diagnozaOsoby2011[,53])
 @
-\item p³eæ,
+\item p?e?,
 \item wiek osoby w 2007 roku,
-\item ocena dotychczasowego ¿ycia,
+\item ocena dotychczasowego ?ycia,
 <<>>=
 levels(diagnozaOsoby2011[,1161])
 @
-\item znajomoœæ jêzyka angielskiego,
+\item znajomo?? j?zyka angielskiego,
 <<>>=
 levels(diagnozaOsoby2011[,1094])
 @
-\item œrednie zarobki z trzech ostatnich miesiêcy netto,
+\item ?rednie zarobki z trzech ostatnich miesi?cy netto,
 \item czy osoba pali papierosy,
 \item czas dojazdu do pracy,
-\item odleg³oœæ od miejsca pracy.
+\item odleg?o?? od miejsca pracy.
 \end{enumerate}
 
 <<results='hide', echo=FALSE>>=
@@ -105,7 +105,7 @@ which(colnames(diagnozaOsoby2011)=="dp115") # odleg?osc od miejca pracy
 tail(diagnozaOsoby2011[,1389])
 @
 
-Nastêpnie dane obcinamy jedynie do niewybrakowanych wierszy
+Nast?pnie dane obcinamy jedynie do niewybrakowanych wierszy
 
 <<>>=
 dane=na.omit(diagnozaOsoby2011[,c(54,54,53,51,42,1161,1161,1094,1304,1256,1388,1389)])
@@ -115,14 +115,14 @@ dim(dane)
 colnames(dane)=c("woj","zabor","kl_miejscowosci","plec","wiek","zadowolenie","zadowolenie_num","ang","zarobki","papierosy","czas_doj_praca","odl_praca")
 @
 
-Skutkiem ubocznym takiego podejœcia jest ominiêcie w analizie osób, które nie odpowiedzia³y lub odpowiedzieæ nie mog³y na chocia¿ jedno z tych pytañ. Na przyk³ad do³o¿enie kolumny "Czas dojazdu do pracy" wyeliminowa³o z analizy prawie wszystkie osoby po osiemdziesi¹tym roku ¿ycia, które z kolei odpowiada³y na pozosta³e pytania.
+Skutkiem ubocznym takiego podej?cia jest omini?cie w analizie os?b, kt?re nie odpowiedzia?y lub odpowiedzie? nie mog?y na chocia? jedno z tych pyta?. Na przyk?ad do?o?enie kolumny "Czas dojazdu do pracy" wyeliminowa?o z analizy prawie wszystkie osoby po osiemdziesi?tym roku ?ycia, kt?re z kolei odpowiada?y na pozosta?e pytania.
 
-Celem raportu by³o jednak nie sprytne odsiewanie danych, ale zaprezentowanie ró¿nych funkcji graficznych, wiêc pozwoliliœmy sobie na takie uproszczenie.
+Celem raportu by?o jednak nie sprytne odsiewanie danych, ale zaprezentowanie r??nych funkcji graficznych, wi?c pozwolili?my sobie na takie uproszczenie.
 
-Kolejnym krokiem by³o do³o¿enie do otrzymanej tabeli dwóch kolumn, odpowiednio
+Kolejnym krokiem by?o do?o?enie do otrzymanej tabeli dw?ch kolumn, odpowiednio
 \begin{enumerate}
-\item numerycznej oceny dotychczasowego ¿ycia, gdzie odpowiedziom od $OKROPNE$ do $WSPANIALE$ przyporz¹dkowujemy numery odpowiednio od $-3$ do $3$, gdzie odpowiedzi $ANI DOBRE, ANI ZLE$ odpowiada, zgodnie z intuicj¹, cyfra $0$,
-\item odpowiedznich zaborów, wg województwa, tak, jak zosta³o to omówione sekcji pierwszej.
+\item numerycznej oceny dotychczasowego ?ycia, gdzie odpowiedziom od $OKROPNE$ do $WSPANIALE$ przyporz?dkowujemy numery odpowiednio od $-3$ do $3$, gdzie odpowiedzi $ANI DOBRE, ANI ZLE$ odpowiada, zgodnie z intuicj?, cyfra $0$,
+\item odpowiedznich zabor?w, wg wojew?dztwa, tak, jak zosta?o to om?wione sekcji pierwszej.
 \end{enumerate}
 
 <<echo=FALSE,results='hide'>>=
@@ -135,39 +135,42 @@ levels(dane[,2])=c("BD/ND/FALA", "Pruski","Pruski","Rosyjski","Pruski","Rosyjski
 dane[,7] = ( 5 - as.numeric(dane[,7]) )
 @
 
-W ten sposób otrzymaliœmy ostateczny zbiór danych, z którego bêdziemy odt¹d korzystaæ przy rysowaniu wykresów.
 
-\section{Poziom zadowolenie w zale¿noœci od wieku}
+levels(dane$Voivodship)
 
-\subsection{Analiza bez podzia³u na zabory}
+W ten spos?b otrzymali?my ostateczny zbi?r danych, z kt?rego b?dziemy odt?d korzysta? przy rysowaniu wykres?w.
 
-Najpierw zauwa¿my zasygnalizowany ju¿ wczeœniej problem, czyli przerzedzenie danych o osoby, które nie by³y w stanie odpowiedzieæ na dowolne z pytañ odpowiadaj¹cych kolumnom danych wyjœciowego pliku, które wybraliœmy do danej analizy. G³ównie z powodu dodatnia kolumn $czas dojazdu do pracy$ i $odleg³oœæ od pracy$, iloœæ osób poni¿ej 18 lub powy¿ej 80 roku ¿ycia, które ³api¹ siê do naszej tabeli danych jest tak ma³a, ¿e mo¿na j¹ uznaæ za niereprezentatywn¹.
+\section{Poziom zadowolenie w zale?no?ci od wieku}
+
+\subsection{Analiza bez podzia?u na zabory}
+
+Najpierw zauwa?my zasygnalizowany ju? wcze?niej problem, czyli przerzedzenie danych o osoby, kt?re nie by?y w stanie odpowiedzie? na dowolne z pyta? odpowiadaj?cych kolumnom danych wyj?ciowego pliku, kt?re wybrali?my do danej analizy. G??wnie z powodu dodatnia kolumn $czas dojazdu do pracy$ i $odleg?o?? od pracy$, ilo?? os?b poni?ej 18 lub powy?ej 80 roku ?ycia, kt?re ?api? si? do naszej tabeli danych jest tak ma?a, ?e mo?na j? uzna? za niereprezentatywn?.
 
 <<>>=
-which(dane[,5]<18) #jest tylko piêæ osób poni¿ej 18 roku ¿ycia
-which(dane[,5]>80) #i s¹ tylko cztery osoby powy¿ej osiemdziesi¹tego roku ¿ycia.
+which(dane[,5]<18) #jest tylko pi?? os?b poni?ej 18 roku ?ycia
+which(dane[,5]>80) #i s? tylko cztery osoby powy?ej osiemdziesi?tego roku ?ycia.
 @
 
-Osoby dzielimy ze wzglêdy na grupy wiekowe i tworzymy tabelê kontyngencji, celem stowrzenia wykresu $dotplot$
+Osoby dzielimy ze wzgl?dy na grupy wiekowe i tworzymy tabel? kontyngencji, celem stowrzenia wykresu $dotplot$
 
 <<>>=
 wiek_zadowolenie=table(dane[,7], cut(dane[,5],c(18,25,35,50,60,80),right=F) )
 @
 
-Wybór grup wiekowych jest arbitralny. Wyszczególnienie grupy wiekowej $[18,25)$ wynika z czystej ciekawoœci - jest to nasza grupa wiekowa, zaœ do³o¿enie grupy $[50,60)$ mia³ wyszczególniæ osoby przechodz¹ce kryzys wieku œredniego.
+Wyb?r grup wiekowych jest arbitralny. Wyszczeg?lnienie grupy wiekowej $[18,25)$ wynika z czystej ciekawo?ci - jest to nasza grupa wiekowa, za? do?o?enie grupy $[50,60)$ mia? wyszczeg?lni? osoby przechodz?ce kryzys wieku ?redniego.
 
-Nastêpnie tworzymy wykres
+Nast?pnie tworzymy wykres
 
 <<>>=
 dotplot(wiek_zadowolenie, type = "o",
         auto.key = list(points = TRUE, lines = TRUE, space = "right"),
         main="Poziom zadowolenia a wiek w skali kraju",ylab="Poziom zadowolenia",
-        xlab="Iloœæ wyst¹pieñ")
+        xlab="Ilo?? wyst?pie?")
 @
 
-Jak widaæ, poziom zadowolenia ma rozk³ad normalny. ¯eby mo¿na by³o dane jeszcze dok³adniej porównywaæ, odt¹d bêdziemy na osi $x$ zaznaczaæ nie czêstoœæ wystêpowania odpowiedzi, ale prawdopodobieñstwo udzielenia odpowiedzi w zale¿noœci od grupy wiekowej.
+Jak wida?, poziom zadowolenia ma rozk?ad normalny. ?eby mo?na by?o dane jeszcze dok?adniej por?wnywa?, odt?d b?dziemy na osi $x$ zaznacza? nie cz?sto?? wyst?powania odpowiedzi, ale prawdopodobie?stwo udzielenia odpowiedzi w zale?no?ci od grupy wiekowej.
 
-Tworzymy w tym celu specjalna funkcjê $wiek_zadowoleniePROB$, która przyda siê przy tworzeniu analogicznych wykresów dla poszczególnych zaborów.
+Tworzymy w tym celu specjalna funkcj? $wiek_zadowoleniePROB$, kt?ra przyda si? przy tworzeniu analogicznych wykres?w dla poszczeg?lnych zabor?w.
 
 <<result='hide'>>=
 wiek_zadowoleniePROB = function(x) {
@@ -179,7 +182,7 @@ wiek_zadowoleniePROB = function(x) {
 }
 @
 
-Obiecany wykres generuje siê w nastêpuj¹cy sposób
+Obiecany wykres generuje si? w nast?puj?cy spos?b
 
 <<>>=
 dotplot(wiek_zadowoleniePROB(wiek_zadowolenie), type = "o",
@@ -190,14 +193,14 @@ dotplot(wiek_zadowoleniePROB(wiek_zadowolenie), type = "o",
 remove(wiek_zadowolenie)
 @
 
-Teraz wyraŸnie widaæ, ¿e najszêœliwsi s¹ ludzie w wieku $25-35$ lat, potem z wiekiem zadowolenie powoli maleje. Nie ma spodziewanego spadku zadowolenia w grupie wiekowej $50-60$.
+Teraz wyra?nie wida?, ?e najsz??liwsi s? ludzie w wieku $25-35$ lat, potem z wiekiem zadowolenie powoli maleje. Nie ma spodziewanego spadku zadowolenia w grupie wiekowej $50-60$.
 
 
-\subsection{Analiza z podzia³em na zabory}
+\subsection{Analiza z podzia?em na zabory}
 
-Przeprowadzamy teraz analogiczn¹ analizê dla poszczególnych zaborów.
+Przeprowadzamy teraz analogiczn? analiz? dla poszczeg?lnych zabor?w.
 
-Dziêki u¿yciu stworzonej wczeœniej funkcji $wiek_zadowoleniePROB$, mo¿emy szybko wygenerowaæ wykresy, po uprzednim storzeniu odpowiednich tabel kontyngencji.
+Dzi?ki u?yciu stworzonej wcze?niej funkcji $wiek_zadowoleniePROB$, mo?emy szybko wygenerowa? wykresy, po uprzednim storzeniu odpowiednich tabel kontyngencji.
 
 \begin{enumerate}
 \item Zaboru pruski.
@@ -209,7 +212,7 @@ plot_Pruski=dotplot(wiek_zadowoleniePROB(wiek_zadowoleniePruski),
                     type = "o",
 
         main="Pruski",
-                    xlab="Prawdopodobieñstwo",
+                    xlab="Prawdopodobie?stwo",
         ylab="Zadowolenie")
 
 remove(wiek_zadowoleniePruski)
@@ -225,7 +228,7 @@ plot_Austriacki=dotplot(wiek_zadowoleniePROB(wiek_zadowolenieAustriacki),
                         type = "o",
 
         main="Austriacki",
-                        xlab="Prawdopodobieñstwo",
+                        xlab="Prawdopodobie?stwo",
         ylab="Zadowolenie")
 
 remove(wiek_zadowolenieAustriacki)
@@ -242,7 +245,7 @@ plot_Rosyjski=dotplot(wiek_zadowoleniePROB(wiek_zadowolenieRosyjski),
         type = "o",
         auto.key = list(points = TRUE, lines = TRUE, space = "right"),
         main="Rosyjski",
-                      xlab="Prawdopodobieñstwo",
+                      xlab="Prawdopodobie?stwo",
         ylab="Zadowolenie")
 
 remove(wiek_zadowolenieRosyjski)
@@ -250,7 +253,7 @@ remove(wiek_zadowolenieRosyjski)
 
 \end{enumerate}
 
-I rysujemy stworzone powy¿ej wykresy.
+I rysujemy stworzone powy?ej wykresy.
 
 <<>>=
 plot(plot_Pruski, split=c(1,1,2,1))
@@ -259,21 +262,21 @@ plot(plot_Austriacki, split=c(2,1,2,1), newpage=FALSE)
 plot(plot_Rosyjski, newpage=T)
 @
 
-Poziom zadowolenia najbardziej wyrównany jest w zaborze Pruskim. Zadowolenie najbardziej z wiekiem spada w zaborze Austriackim - po $35$ roku ¿ycia nastêpuje ogromy spade, a potem dwa kolejne, równie du¿e.
+Poziom zadowolenia najbardziej wyr?wnany jest w zaborze Pruskim. Zadowolenie najbardziej z wiekiem spada w zaborze Austriackim - po $35$ roku ?ycia nast?puje ogromy spade, a potem dwa kolejne, r?wnie du?e.
 
-Najciekawsze wyniki s¹ z terenów by³ego zaboru Rosyjskiego, gdzie zadowolenie spada doœæ umiarkowanie, a po 60 roku ¿ycia nastêpuje gwa³towny spadek, zapewne zwi¹zany z koñcem aktywnoœci zawodowej.
+Najciekawsze wyniki s? z teren?w by?ego zaboru Rosyjskiego, gdzie zadowolenie spada do?? umiarkowanie, a po 60 roku ?ycia nast?puje gwa?towny spadek, zapewne zwi?zany z ko?cem aktywno?ci zawodowej.
 
-\section{Wynagrodzenie kobiet i mê¿czyzn}
+\section{Wynagrodzenie kobiet i m??czyzn}
 
-\subsection{Analiza bez podzia³u na zabory}
+\subsection{Analiza bez podzia?u na zabory}
 
-Zauwa¿my najpierw, ¿e ponad $94$ procent osób z tabeli zarabia poni¿ej $5000$ z³otych miesiêcznie.
+Zauwa?my najpierw, ?e ponad $94$ procent os?b z tabeli zarabia poni?ej $5000$ z?otych miesi?cznie.
 
 <<>>=
 sum(dane[,9]<5000)/length(dane[,9])
 @
 
-Je¿eli wygenerujemy wykresy jedynie dla ludzi zarabiaj¹cych nie wiêcej ni¿ $5000$ z³otych, nie stracimy wiele ogólnoœci, a wykresy zyskaj¹ znacznie na czytelnoœci.
+Je?eli wygenerujemy wykresy jedynie dla ludzi zarabiaj?cych nie wi?cej ni? $5000$ z?otych, nie stracimy wiele og?lno?ci, a wykresy zyskaj? znacznie na czytelno?ci.
 
 $densityplot$ dla tak okrojonych danych w skali kraju to
 
@@ -281,29 +284,29 @@ $densityplot$ dla tak okrojonych danych w skali kraju to
 densityplot(~ dane[dane[,9]<5000,9], data=dane,
             plot.points = F,
             groups = dane[,4][drop=T],
-            auto.key = TRUE,xlab="Zarobki",ylab="Gêstoœæ",
-            main="Zarobki wg p³ci w skali kraju")
+            auto.key = TRUE,xlab="Zarobki",ylab="G?sto??",
+            main="Zarobki wg p?ci w skali kraju")
 @
 
-Zarobki kobiet i mê¿czyzn sa zadziwiajaco podobne. Warto zwróciæ uwagê na dwie rzeczy.
+Zarobki kobiet i m??czyzn sa zadziwiajaco podobne. Warto zwr?ci? uwag? na dwie rzeczy.
 
 \begin{enumerate}
-\item W okolicy $1000$ z³otych nastêpuje ogromny skok gêstoœci. Doœæ pesymistyczna hipoteza, ¿e jest to miejsce wyznaczaj¹ce p³acê minimaln¹, okazuje siê nieprawdziwa - w 2007 p³aca minimalna wynosi³a nieca³e $700$ z³otych. Jest to pewnie spowodowane tym, ¿e $1000$ z³otych by³o barier¹ psychiczn¹ i ma³o kto chcia³ pracowaæ za ni¿sz¹ stawkê.
-\item Pensjê poni¿ej $1400$ otrzymuje wiêcej kobiet ni¿ mê¿czyzn, zaœ powy¿ej - wiêcej mê¿czyzn. Generalnie wiêc prad¹ jest, ¿e kobiety zarabiaj¹ gorzej, choæ widoczne tu ró¿nice s¹ du¿o mniej dramatyczne, ni¿ mog³oby siê wydawaæ.
+\item W okolicy $1000$ z?otych nast?puje ogromny skok g?sto?ci. Do?? pesymistyczna hipoteza, ?e jest to miejsce wyznaczaj?ce p?ac? minimaln?, okazuje si? nieprawdziwa - w 2007 p?aca minimalna wynosi?a nieca?e $700$ z?otych. Jest to pewnie spowodowane tym, ?e $1000$ z?otych by?o barier? psychiczn? i ma?o kto chcia? pracowa? za ni?sz? stawk?.
+\item Pensj? poni?ej $1400$ otrzymuje wi?cej kobiet ni? m??czyzn, za? powy?ej - wi?cej m??czyzn. Generalnie wi?c prad? jest, ?e kobiety zarabiaj? gorzej, cho? widoczne tu r??nice s? du?o mniej dramatyczne, ni? mog?oby si? wydawa?.
 \end{enumerate}
 
-\subsection{Analiza z podzia³em na zabory}
+\subsection{Analiza z podzia?em na zabory}
 
-Pakiet $lattice$ pozwala ³atwo wygenerowaæ po¿¹dany wykres:
+Pakiet $lattice$ pozwala ?atwo wygenerowa? po??dany wykres:
 
 <<>>=
 densityplot(~ dane[dane[,9]<5000,9] | dane[,2], data=dane,
             plot.points = F,
             groups = dane[,4][drop=T],
-            auto.key = TRUE,xlab="Zarobki",ylab="Gêstoœæ",main="Zarobki wg p³ci")
+            auto.key = TRUE,xlab="Zarobki",ylab="G?sto??",main="Zarobki wg p?ci")
 @
 
-Zarobki na wszystkich terenach maj¹ dosyæ podobn¹ strukturê, w terenach by³ego zaboru austriackiego s¹ zdecydowanie ni¿sze, ni¿ gdzie indziej. Tereny by³ego zaboru pruskiego to dzisiejsza zachodnia Polska, wiêc spodziewaliœmy siê wiêkszej ró¿nicy wynagrodzeñ miêdzy zaborem Pruskim a Rosyjskim. Je¿eli jednak z zaboru Rosyjskiego wyrzucimy Warszawê (co osi¹gn¹æ mo¿emy tylko w przybli¿onym stopniu, wyrzucaj¹c wszystkie osoby z województwa Mazowieckiego, które mieszkaj¹ w miastach o liczbie mieszkañców powy¿ej 500 tysiêcy ludzi),
+Zarobki na wszystkich terenach maj? dosy? podobn? struktur?, w terenach by?ego zaboru austriackiego s? zdecydowanie ni?sze, ni? gdzie indziej. Tereny by?ego zaboru pruskiego to dzisiejsza zachodnia Polska, wi?c spodziewali?my si? wi?kszej r??nicy wynagrodze? mi?dzy zaborem Pruskim a Rosyjskim. Je?eli jednak z zaboru Rosyjskiego wyrzucimy Warszaw? (co osi?gn?? mo?emy tylko w przybli?onym stopniu, wyrzucaj?c wszystkie osoby z wojew?dztwa Mazowieckiego, kt?re mieszkaj? w miastach o liczbie mieszka?c?w powy?ej 500 tysi?cy ludzi),
 
 <<>>=
 densityplot(~ dane[1==((dane[,9]<5000)-((dane[,1]=="Mazowieckie ") +
@@ -311,17 +314,17 @@ densityplot(~ dane[1==((dane[,9]<5000)-((dane[,1]=="Mazowieckie ") +
             | dane[,2], data=dane,
             plot.points = F,
             groups = dane[,4][drop=T],
-            auto.key = TRUE,xlab="Zarobki",ylab="Gêstoœæ",
-            main="Zarobki wg p³ci")
+            auto.key = TRUE,xlab="Zarobki",ylab="G?sto??",
+            main="Zarobki wg p?ci")
 @
 
-Teraz zgodnie z oczekiwaniami zajwy¿sze zarobki s¹ z zaborze Pruskim. SprawdŸmy jeszcze te wnioski rysuj¹c wykresy dla zaborów niezaleŸnie od p³ci.
+Teraz zgodnie z oczekiwaniami zajwy?sze zarobki s? z zaborze Pruskim. Sprawd?my jeszcze te wnioski rysuj?c wykresy dla zabor?w niezale?nie od p?ci.
 
 <<>>=
 densityplot(~ dane[dane[,9]<5000,9], data=dane,
             plot.points = F,
             groups = dane[,2][drop=T],
-            auto.key = TRUE,xlab="Zarobki",ylab="Gêstoœæ",
+            auto.key = TRUE,xlab="Zarobki",ylab="G?sto??",
             main="Zarobki wg zaboru")
 
 @
@@ -333,18 +336,18 @@ densityplot(~ dane[1==((dane[,9]<5000)-(dane[,1]=="Mazowieckie ")),9],
             data=dane,
             plot.points = F,
             groups = dane[,2][drop=T],
-            auto.key = TRUE,xlab="Zarobki",ylab="Gêstoœæ",
+            auto.key = TRUE,xlab="Zarobki",ylab="G?sto??",
             main="Zarobki wg zaboru")
 
 @
 
-Co potwierdza poczynione wczeœniej spostrze¿enia.
+Co potwierdza poczynione wcze?niej spostrze?enia.
 
-\section{Analiza danych ciag³ych za pomoc¹ macierzy korelacji}
+\section{Analiza danych ciag?ych za pomoc? macierzy korelacji}
 
-\subsection{Analiza bez podzia³u na zabory}
+\subsection{Analiza bez podzia?u na zabory}
 
-SprawdŸmy teraz korelacjê poszczególnych danych.
+Sprawd?my teraz korelacj? poszczeg?lnych danych.
 
 <<>>=
 cor.dane <- cor(dane[, !sapply(dane, is.factor)],
@@ -353,11 +356,11 @@ levelplot(cor.dane, main="Macierz korelacji",
           scales = list(dane= list(rot = 90)),xlab="",ylab="")
 @
 
-Jak mo¿na by³o oczekiwaæ, oleg³oœæ od pracy i czas dojazdu do pracy s¹ silnie dodatnio skorelowane. Okazuje siê równie¿, ¿e d³u¿szy czas dojazdu do pracy oznacza niekiedy ni¿sze zarobki (mamy ujemn¹ korelacjê).
+Jak mo?na by?o oczekiwa?, oleg?o?? od pracy i czas dojazdu do pracy s? silnie dodatnio skorelowane. Okazuje si? r?wnie?, ?e d?u?szy czas dojazdu do pracy oznacza niekiedy ni?sze zarobki (mamy ujemn? korelacj?).
 
-Zaskakuj¹ce mo¿e siê wydawaæ, ¿e zarobki i zadowolenie nie s¹ skorelowane.
+Zaskakuj?ce mo?e si? wydawa?, ?e zarobki i zadowolenie nie s? skorelowane.
 
-\subsection{Analiza z podzia³em na zabory}
+\subsection{Analiza z podzia?em na zabory}
 
 Rozbijamy znowu dane na regiony.
 
@@ -383,14 +386,14 @@ plot(wykres2, split=c(2,1,2,2),newpage=FALSE)
 plot(wykres3, split=c(1,2,2,2), newpage=FALSE)
 @
 
-\section{Macierz korelacji dla wiêkszej iloœci zmiennych}
+\section{Macierz korelacji dla wi?kszej ilo?ci zmiennych}
 
-Rozszerzmy teraz nasz zbiór danych o nowe kolumny, które intuicyjnie powinny byæ silnie skorelowane:
+Rozszerzmy teraz nasz zbi?r danych o nowe kolumny, kt?re intuicyjnie powinny by? silnie skorelowane:
 
 \begin{enumerate}
 \item przepracowane w tygodniu godziny,
-\item godziny spêdzone przed komputerem,
-\item godziny poœwi¹cone przegl¹daniu internetu.
+\item godziny sp?dzone przed komputerem,
+\item godziny po?wi?cone przegl?daniu internetu.
 \end{enumerate}
 
 <<echo=FALSE, results='hide'>>=
@@ -407,9 +410,9 @@ colnames(dane_rozsz)=c("woj","zabor","kl_miejscowosci","plec","wiek",
 "ang","zarobki","papierosy","czas_doj_praca","odl_praca",
                  "godz_pracy","godz_komp","godz_internet")
 
-levels(dane_rozsz$kl_miejscowosci)=c("BD/ND/FALA","miasta > 500 tys.","miasta 200-500 tys.","miasta 100-200 tys.","miasta 20-100 tys.","miasta < 20 tys.","wieœ")
+levels(dane_rozsz$kl_miejscowosci)=c("BD/ND/FALA","miasta > 500 tys.","miasta 200-500 tys.","miasta 100-200 tys.","miasta 20-100 tys.","miasta < 20 tys.","wie?")
 
-# Usuwamy z kolumny zarobki wielkosci 99999, ktore w ankiecie by³y sposobem kodowania "odmawiam
+# Usuwamy z kolumny zarobki wielkosci 99999, ktore w ankiecie by?y sposobem kodowania "odmawiam
 # odpowiedzi na pytanie".
 
 attach(dane_rozsz)
@@ -430,52 +433,52 @@ levelplot(cor.dane_rozsz, scales=list(x=list(rot=90)),main="Macierz korelacji",
           xlab="",ylab="")
 @
 
-Czas spêdzony przy komputerze jest dodatnio skorelowany z iloœci¹ godzin przeznaczonych na korzystanie z internetu, co wskazuje, ¿e w Polsce rzadko u¿ywa siê komputerów, które nie s¹ pod³¹czone do sieci.
+Czas sp?dzony przy komputerze jest dodatnio skorelowany z ilo?ci? godzin przeznaczonych na korzystanie z internetu, co wskazuje, ?e w Polsce rzadko u?ywa si? komputer?w, kt?re nie s? pod??czone do sieci.
 
-Widac te¿, ze wiek jest s³abo ujemnie skorelowany z iloœci¹ godzin spêdzona na przegl¹daniu internetu, podobnie korelacja miêdzy wiekiem a czasem korzystania z komputera jest ujemna. Jednak druga jest co do modu³u mniejsza od pierwszej, sk¹d wniosek, ¿e im ktoœ starszy, tym mniej korzysta z komputera do przegl¹dania internetu.
+Widac te?, ze wiek jest s?abo ujemnie skorelowany z ilo?ci? godzin sp?dzona na przegl?daniu internetu, podobnie korelacja mi?dzy wiekiem a czasem korzystania z komputera jest ujemna. Jednak druga jest co do modu?u mniejsza od pierwszej, sk?d wniosek, ?e im kto? starszy, tym mniej korzysta z komputera do przegl?dania internetu.
 
-\section{Analiza zale¿noœci czasu dojazdu do pracy od odleg³oœci}
+\section{Analiza zale?no?ci czasu dojazdu do pracy od odleg?o?ci}
 
 \subsection{W skali kraju}
 
-Jak zauwa¿yliœmy w poprzednim rozdziale, korelacja miêdzy czasem dojazdu do pracy a odleg³oœci¹ wynosi jedynie $0.6$, co mo¿e siê wydawaæ niezgodne z intuicj¹. Zbadajmy wiêc tê zale¿noœæ dok³adniej.
+Jak zauwa?yli?my w poprzednim rozdziale, korelacja mi?dzy czasem dojazdu do pracy a odleg?o?ci? wynosi jedynie $0.6$, co mo?e si? wydawa? niezgodne z intuicj?. Zbadajmy wi?c t? zale?no?? dok?adniej.
 
-Rysujemy na pocz¹tku zwyk³y $xyplot$,
-
-<<>>=
-xyplot(czas_doj_praca~odl_praca, data=dane_rozsz, type="p", xlab="Odleg³oœæ od pracy",
-       ylab="Czas dojazdu do pracy",main="Zale¿noœæ")
-@
-
-który okazuje siê ma³o czytelny. Dok³adamy do niego wiêc jeszcze krzyw¹ regresji.
+Rysujemy na pocz?tku zwyk?y $xyplot$,
 
 <<>>=
-xyplot(czas_doj_praca~odl_praca, data=dane_rozsz, type=c("p","r"),xlab="Odleg³oœæ od pracy",
-       ylab="Czas dojazdu do pracy",main="Zale¿noœæ z krzyw¹ regresji")
+xyplot(czas_doj_praca~odl_praca, data=dane_rozsz, type="p", xlab="Odleg?o?? od pracy",
+       ylab="Czas dojazdu do pracy",main="Zale?no??")
 @
 
-Widaæ, ¿e zale¿noœæ jest w przybli¿eniu liniowa, ze stosunkowo du¿¹ wariancj¹.
+kt?ry okazuje si? ma?o czytelny. Dok?adamy do niego wi?c jeszcze krzyw? regresji.
 
-\subsection{Ze wzglêdu na klasê miejscowoœci}
+<<>>=
+xyplot(czas_doj_praca~odl_praca, data=dane_rozsz, type=c("p","r"),xlab="Odleg?o?? od pracy",
+       ylab="Czas dojazdu do pracy",main="Zale?no?? z krzyw? regresji")
+@
 
-Powtórzmy analizê przy rozbiciu wzgledem wielkosci miejscowoœci.
+Wida?, ?e zale?no?? jest w przybli?eniu liniowa, ze stosunkowo du?? wariancj?.
+
+\subsection{Ze wzgl?du na klas? miejscowo?ci}
+
+Powt?rzmy analiz? przy rozbiciu wzgledem wielkosci miejscowo?ci.
 
 <<>>=
 xyplot(czas_doj_praca~odl_praca | kl_miejscowosci,
-       data=dane_rozsz,type=c("p","r"),col="grey20",pch=16,xlab="Odleg³oœæ od pracy",
+       data=dane_rozsz,type=c("p","r"),col="grey20",pch=16,xlab="Odleg?o?? od pracy",
        ylab="Czas dojazdu do pracy")
 @
 
-Ze wzrostem liczby mieszkañców miejscowoœci maleje œrednia odleg³oœæ od miejsca pracy, co jest zwi¹zane z tym, ¿e osoby mieszkaj¹ce na wsi lub w ma³ych miejscowoœciach czêsto doje¿d¿aj¹ do pracy). Przyk³adowo w miastach powy¿ej $500 tys.$ mieszkañców nie ma przypadku, by ktoœ doje¿d¿a³ wiêcej ni¿ $100 km$, zaœ zdecydowana wiêkszoœæ ludzi mieszka nie wiêcej ni¿ $50 km$ od miejsca pracy.
+Ze wzrostem liczby mieszka?c?w miejscowo?ci maleje ?rednia odleg?o?? od miejsca pracy, co jest zwi?zane z tym, ?e osoby mieszkaj?ce na wsi lub w ma?ych miejscowo?ciach cz?sto doje?d?aj? do pracy). Przyk?adowo w miastach powy?ej $500 tys.$ mieszka?c?w nie ma przypadku, by kto? doje?d?a? wi?cej ni? $100 km$, za? zdecydowana wi?kszo?? ludzi mieszka nie wi?cej ni? $50 km$ od miejsca pracy.
 
-Na wszystkich wykresach widaæ, ze zale¿noœæ czasu dojazdu do pracy od odleg³oœæi jest w dalszym ci¹gu liniowa. W przypadku najwiêkszych miast nachylenie krzywej jest wiêksze, co mo¿e byæ zwi¹zane z wiêkszym zat³oczeniem, powoduj¹cym d³u¿szy czas dojazdu, nawet w przypadku ma³ych odleg³oœci.
+Na wszystkich wykresach wida?, ze zale?no?? czasu dojazdu do pracy od odleg?o??i jest w dalszym ci?gu liniowa. W przypadku najwi?kszych miast nachylenie krzywej jest wi?ksze, co mo?e by? zwi?zane z wi?kszym zat?oczeniem, powoduj?cym d?u?szy czas dojazdu, nawet w przypadku ma?ych odleg?o?ci.
 
-\subsection{Analiza zale¿noœci czasu dojazdu od odleg³osci przy rozbiciu na zabory}
+\subsection{Analiza zale?no?ci czasu dojazdu od odleg?osci przy rozbiciu na zabory}
 
-Teraz przeprowadzimy tê analizê dla poszczególnych zaborów, przy czym w celu ograniczenia liczby komórek, scalamy $levels$ klasy miejscowoœci do
+Teraz przeprowadzimy t? analiz? dla poszczeg?lnych zabor?w, przy czym w celu ograniczenia liczby kom?rek, scalamy $levels$ klasy miejscowo?ci do
 \begin{enumerate}
-\item miast powy¿ej $200 tys.$ mieszkañców,
-\item miasta poni¿ej $200 tys.$ mieszkañców,
+\item miast powy?ej $200 tys.$ mieszka?c?w,
+\item miasta poni?ej $200 tys.$ mieszka?c?w,
 \item wsie.
 \end{enumerate}
 
@@ -493,17 +496,17 @@ levels(dane[,"kl_miejscowosci2"])=c("BD/ND/FALA","Miasta > 200 tys.",
 
 <<>>=
 xyplot(czas_doj_praca~odl_praca | kl_miejscowosci2+zabor,
-       data=dane, type=c("p","r"),col="grey20",pch=16,xlab="Odleg³oœæ od pracy",
+       data=dane, type=c("p","r"),col="grey20",pch=16,xlab="Odleg?o?? od pracy",
        ylab="Czas dojazdu do pracy")
 @
 
-W przypadku najwiêkszych miast zaboru pruskiego krzywa regresji ma mniejsze nachylenie ni¿ dla pozosta³ych zaborów. Sugeruje to, ¿e w miastach by³ego zaboru pruskiego (czyli na przyk³ad we Wroc³awiu, Bydgoszczy, Toruniu, Gdañsku, Katowicach, Poznaniu i Szczecinie) lepiej zosta³y rozwi¹zane problemy logistyczne, powstawa³y lepsze plany miast, b¹dŸ te¿ w tych miastach jest po prostu lepszy system komunikacji miejskiej.
+W przypadku najwi?kszych miast zaboru pruskiego krzywa regresji ma mniejsze nachylenie ni? dla pozosta?ych zabor?w. Sugeruje to, ?e w miastach by?ego zaboru pruskiego (czyli na przyk?ad we Wroc?awiu, Bydgoszczy, Toruniu, Gda?sku, Katowicach, Poznaniu i Szczecinie) lepiej zosta?y rozwi?zane problemy logistyczne, powstawa?y lepsze plany miast, b?d? te? w tych miastach jest po prostu lepszy system komunikacji miejskiej.
 
-\section{Dodatek - narkotyki w poszczególnych województwach}
+\section{Dodatek - narkotyki w poszczeg?lnych wojew?dztwach}
 
-Zaprezentujemy teraz funckjê, która rysuje dane na mapie Polski, przyporz¹dkowuj¹c wyniki poszczególnych województw w okolicy odpowiedniego miasta wojewódzkiego.
+Zaprezentujemy teraz funckj?, kt?ra rysuje dane na mapie Polski, przyporz?dkowuj?c wyniki poszczeg?lnych wojew?dztw w okolicy odpowiedniego miasta wojew?dzkiego.
 
-Najpierw wczytamy mapê Polski (z pakietu $maps$) i wczytamy z internetu wspó³rzêdne geograficzne województw.
+Najpierw wczytamy map? Polski (z pakietu $maps$) i wczytamy z internetu wsp??rz?dne geograficzne wojew?dztw.
 
 <<echo=FALSE, results='hide'>>=
 # install.packages("maps")
@@ -522,7 +525,7 @@ ramka=cbind(woj,dl,szer)
 wsp=ramka
 @
 
-Funkcj¹ rysuj¹c¹ mapê z zaznaczonymi na niej miastami wojewódzkimi jest
+Funkcj? rysuj?c? map? z zaznaczonymi na niej miastami wojew?dzkimi jest
 
 <<>>=
 plotwojewodztwa = function() {
@@ -549,7 +552,7 @@ nieproboja=nieproboja[-1]
 takproboja=takproboja[-1]
 @
 
-Teraz mo¿emy nanieœæ dane na mapkê, u¿ywaj¹c funkcji $jitter$.
+Teraz mo?emy nanie?? dane na mapk?, u?ywaj?c funkcji $jitter$.
 
 <<>>=
 plotwojewodztwa()
@@ -563,7 +566,7 @@ for (i in 1:length(takproboja)) {
 }
 @
 
-Zamiast u¿ywaæ funkcji jitter mo¿emy u¿yæ losowania z dwuwymiarowego rozk³adu normalnego, co daje lepszy efekt wizualny. 
+Zamiast u?ywa? funkcji jitter mo?emy u?y? losowania z dwuwymiarowego rozk?adu normalnego, co daje lepszy efekt wizualny. 
 
 <<>>=
 plotwojewodztwa()

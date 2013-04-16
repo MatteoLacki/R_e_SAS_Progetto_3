@@ -3,17 +3,17 @@
 
 attach(dane)                                           # to call the collumnes 
 
-ordered_Satisfaction <- factor(
-  Satisfaction, 
-  levels=   c("OKROPNE", 
-              "NIESZCZESLIWE",
-              "NIEZBYT UDANE",
-              "ANI DOBRE, ANI ZLE",
-              "UDANE",
-              "DOSYC DOBRE",
-              "WSPANIALE"),
-  ordered=TRUE
-)
+#ordered_Satisfaction <- factor(
+#  Satisfaction, 
+#  levels=   c("OKROPNE", 
+#              "NIESZCZESLIWE",
+#              "NIEZBYT UDANE",
+#              "ANI DOBRE, ANI ZLE",
+#              "UDANE",
+#              "DOSYC DOBRE",
+#              "WSPANIALE"),
+#  ordered=TRUE
+#)
 
 
 
