@@ -42,48 +42,6 @@ colnames(dane) <- variables_of_interest
 
   levels(dane$Gender) <- c("woman", "man")
 
-
-
-#####################################################################################################################################
-
-#levels(dane$Zabior) <- c ("Austrian", "Prussian","Russian") 
-
-partitions <- Voivodship
-
-
-levels(partition) <= c("BD/ND/FALA", "Pruski","Pruski","Rosyjski","Pruski","Rosyjski",
-                              "Rosyjski","Pruski", "Austriacki","Rosyjski","Pruski",
-                              "Pruski","Pruski","Pruski")
-
-austrian_partition  <- c("Maloposlkie", "Podkarpackie")
-                            
-                            
-                            )
-
-prussian_partition  <- c("Dolnoslaskie",)
-
-russian_partition   <- c("Slaskie", "Opolskie", "Dolnoslaskie", "Lubuskie", "Wielkopolskie", "Kujawsko-pomorskie")
-  
-  "Kujawsko-pomorskie", 
-                         "Lodzkie",  
-                         "Lubelskie",  
-                         "Lubuskie", 
-                         "Mazowieckie", 
-                         "Zachodniopomorskie")
-
-
-partitions          <- list(austrian_partition, prussian_partition, russian_partition)
-
-dane[is.element(Voivodship,Zabor_austraicki),]
-
-
-dane_zabor_austriacki
-
-
-
-dane[,7] = ( 5 - as.numeric(dane[,7]) )
-
-  
 #####################################################################################################################################
 
   levels(dane$Satisfaction) <- c("Ordinary", "Quite good", "Unhappy", "Not so good", "Terrible" ,"Successful", "Wonderful" )  
@@ -135,9 +93,21 @@ variables_description <- c( "Title of Voivodship (WOJEWODSTWO)",
                             "Which distance is between accomodation and office (dp115)"
 )
 
-
 variables_desciption_table <- cbind(variables_of_interest, variables_description)
 colnames(variables_desciption_table) <- c("Variable name", "Variable description" )
+
+#####################################################################################################################################
+
+  # Preparing data on partitions.
+austrian_partition_names  <- c("Malopolskie", "Podkarpackie")
+prussian_partition_names  <- c("Slaskie", "Opolskie", "Wielkopolskie", "Kujawsko-pomorskie", "Pomorskie")
+russian_partition_names   <- c("Lodzkie", "Dolnoslaskie", "Mazowieckie", "Lubelskie", "Swietokrzyskie", "Podlaskie")
+
+
+austrian_partition_data   <- dane[is.element(dane$Voivodship,austrian_partition_names),]                  
+prussian_partition_data   <- dane[is.element(dane$Voivodship,prussian_partition_names),]
+russian_partition_data    <- dane[is.element(dane$Voivodship,russian_partition_names),]
+
 # Don't need it? Frow it away. 
 # That's what my mom used to say.
 

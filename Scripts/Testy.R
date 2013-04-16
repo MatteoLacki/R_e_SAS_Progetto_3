@@ -29,3 +29,17 @@ test(1,3)
 \noindent
 
 \end{landscape}
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}
+  \centering
+  <<fig=true>>==        % sweave understands that it will be a figure      
+  source("./Scripts/probability_of_satisfaction.R")
+  
+  print(probability_of_satisfaction)
+  @
+  \caption{Probability of satisfaction levels  with overlayed age distribution in Poland.}
+  \label{probability_of_satisfaction}
+  \end{figure}
+}
