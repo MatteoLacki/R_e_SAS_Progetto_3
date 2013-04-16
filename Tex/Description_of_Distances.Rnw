@@ -13,23 +13,16 @@ print(distance)
   \end{figure}
 }
 
-
 \begin{landscape}
+
     \thispagestyle{empty}
     \noindent
 
-    {
-      \setkeys{Gin}{width=.5\linewidth}
-      \begin{figure}
-      \centering
-<<fig=true>>==        % sweave understands that it will be a figure      
-source("./Scripts/distance_analysis.R")
-      
-print(distance)
-@
-      \caption{Dependence between arrival time and distance to office.}
-      \end{figure}
-    }
+      \begin{tabular}{ c c }
+        \includegraphics{Tex/xx-CHUNK1.pdf} & \includegraphics{Tex/xx-CHUNK1.pdf}
+      \end{tabular}
 
+  
+      
 \end{landscape}
 
