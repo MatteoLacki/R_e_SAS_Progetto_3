@@ -1,5 +1,8 @@
+In this section we shall compare our graphical approach to the question of mutual dependencies between arrival time and distance to office. Our opponents use a simple \url{xyplot} to generate their figure. It's true, that there is no clear trend in it, so adding an extra linear dependence between the data seems to help a bit in seeing the overall tendency that the time of travel grows with the distance. 
 
-In this section we shall compare our graphical approach to the question of mutual dependencies between arrival time and distance to office. Observe how we gently create good stuff.
+
+We thought however that the plot could contain much more information without being unintellegible. That's precisely why we included an extra subdivision based on gender. To show the overall tendency we have also added a cubic spline with a $99\%$ confidence area around it for both genders separately. We invite to compare both methodologies by taking a glance at Figure \ref{distance}.
+
 
 <<Old_distances, fig=TRUE, results=hide, include=FALSE, echo=FALSE, eps=FALSE, prefix.string=./Picts/distance>>=
 source("./Scripts/distance_analysis.R") 
@@ -11,11 +14,8 @@ print(new_distance)
 @
 
 
-\begin{landscape}
 
-  \thispagestyle{empty}
-  \noindent
-  \begin{figure}[h]
+  \begin{figure}[p]
     \begin{center}
     \subfloat[Before changes.]{
       \includegraphics[keepaspectratio=true,width=.4\linewidth]{Picts/distance-Old_distances.pdf} 
@@ -28,4 +28,3 @@ print(new_distance)
     \label{distance}
   \end{figure}
 
-\end{landscape}

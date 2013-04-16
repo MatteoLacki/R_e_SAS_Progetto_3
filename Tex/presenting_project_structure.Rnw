@@ -51,5 +51,13 @@ Note that the above chunk could have been included right at the beginning of the
 
 Moreover, it is a good custom to do multifile projects, because this creates transparency. We don't have to search for a specific section of the code in one file, but rather directly open the file which is precisely labelled. 
 
-Our project is divided in the following way
+Our project is divided in the way represented by Figure \ref{folder_structure}.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[keepaspectratio=true, height=.2\textheight]{Picts/folder_stucture.pdf}
+  \end{center}
+  \caption{Project folder structure.}
+  \label{folder_structure}
+\end{figure}
 

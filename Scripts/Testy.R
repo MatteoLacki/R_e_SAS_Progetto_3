@@ -21,3 +21,11 @@ test(1,3)
   \caption{Dependence between arrival time and distance to office.}
   \end{figure}
 }
+
+
+\begin{landscape}
+
+\thispagestyle{empty}
+\noindent
+
+\end{landscape}

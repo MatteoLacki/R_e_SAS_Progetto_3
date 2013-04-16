@@ -1,7 +1,7 @@
 
 {
   \setkeys{Gin}{width=1.0\textwidth}
-  \begin{figure}
+  \begin{figure}[h]
   \centering
 
 
