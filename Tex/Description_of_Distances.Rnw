@@ -5,13 +5,16 @@
   \begin{figure}
   \centering
 <<fig=true>>==        % sweave understands that it will be a figure      
-source("./Scripts/distance_analysis.R")
-  
+source("./Scripts/distance_analysis.R")  
 print(distance)
 @
   \caption{Dependence between arrival time and distance to office.}
   \end{figure}
 }
+
+<<CHUNK1, fig=TRUE, include=FALSE, echo=TRUE, eps=FALSE, width=3, height=7,prefix.string=./Picts/distance>>=
+print(distance)
+@
 
 \begin{landscape}
 
@@ -19,7 +22,7 @@ print(distance)
     \noindent
 
       \begin{tabular}{ c c }
-        \includegraphics{Tex/xx-CHUNK1.pdf} & \includegraphics{Tex/xx-CHUNK1.pdf}
+        \includegraphics[width=.5\textwidth]{Picts/distance-CHUNK1.pdf} & \includegraphics[width=.5\textwidth]{Picts/distance-CHUNK1.pdf}
       \end{tabular}
 
   
