@@ -50,3 +50,14 @@ source("./Scripts/ancilliary_functions.R")
 Note that the above chunk could have been included right at the beginning of the latex document in an \url{R} chunk with hidden results. Then it would be present in the \url{R} session till the end of the compilation process and in every part of the document the function could be called without explicitly using the code itself.
 
 Moreover, it is a good custom to do multifile projects, because this creates transparency. We don't have to search for a specific section of the code in one file, but rather directly open the file which is precisely labelled. 
+
+Our project is divided in the way represented by Figure \ref{folder_structure}.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[keepaspectratio=true, height=.2\textheight]{Picts/folder_stucture.pdf}
+  \end{center}
+  \caption{Project folder structure.}
+  \label{folder_structure}
+\end{figure}
+

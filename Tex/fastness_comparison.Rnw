@@ -1,4 +1,10 @@
-\begin{center}
+
+{
+  \setkeys{Gin}{width=1.0\textwidth}
+  \begin{figure}[h]
+  \centering
+
+
 \begin{tikzpicture}
 \clip node (m) [matrix,matrix of nodes,
                 fill=black!20,inner sep=0pt,
@@ -15,4 +21,9 @@
                   Data reading            & \Sexpr{ round(comparing_times[1], digits=4)} sec    & \Sexpr{ round(comparing_times[2], digits=4)} sec \\
                 };
 \end{tikzpicture}
-\end{center}
+
+  \caption{Comparing speed of various processes.}
+  \label{data_speed}
+  \end{figure}
+
+}

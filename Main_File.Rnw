@@ -31,21 +31,16 @@
 		% Here we generate the titlepage
 	\pagestyle{empty} % Removes page numbers
 	\titleGP % This command includes the title page. This command is not ours. It was made by Peter Wilson.
+  
   \newpage  
   
-  
-	%\tableofcontents
-  %\newpage
   \section{Presenting project structure}
     \SweaveInput{Tex/presenting_project_structure.Rnw}
   
   \section{Presenting data}
     \SweaveInput{Tex/presenting_data.Rnw}
-
-  \section{Comparing speed of operations}
-  	\SweaveInput{Tex/fastness_comparison.Rnw}
     
-  \section{New section}
+  \section{Analysis of salaries}
     \SweaveInput{Tex/Description_of_Salaries.Rnw}
     
   \section{Analysis of arrival time and distance to office}
@@ -54,7 +49,15 @@
   \section{Analysis of satisfaction}
     \SweaveInput{Tex/Description_of_Satisfaction.Rnw}
    
-    
+  \section{Comparing speed of operations}
+    \SweaveInput{Tex/fastness_comparison.Rnw}
+
+
+
+  % Removing everything from workspace.
+<<results=hide>>=
+    rm(list=ls())
+@
 
 
 \end{document}
